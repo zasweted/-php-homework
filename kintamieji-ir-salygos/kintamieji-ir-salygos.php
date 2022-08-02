@@ -116,46 +116,46 @@ echo '<br>';
 $zeroes = 0;
 $ones = 0;
 $twoes = 0;
-if($A === 0){
+if($A == 0){
     $zeroes++;
 }else{
-    if($A === 1){
+    if($A == 1){
         $ones++;
     }else{
-        if($A === 2){
+        if($A == 2){
             $twoes++;
         }
     }
 }
-if($B === 0){
+if($B == 0){
     $zeroes++;
 }else{
-    if($B === 1){
+    if($B == 1){
         $ones++;
     }else{
-        if($B === 2){
+        if($B == 2){
             $twoes++;
         }
     }
 }
-if($C === 0){
+if($C == 0){
     $zeroes++;
 }else{
-    if($C === 1){
+    if($C == 1){
         $ones++;
     }else{
-        if($C === 2){
+        if($C == 2){
             $twoes++;
         }
     }
 }
-if($D === 0){
+if($D == 0){
     $zeroes++;
 }else{
-    if($D === 1){
+    if($D == 1){
         $ones++;
     }else{
-        if($D === 2){
+        if($D == 2){
             $twoes++;
         }
     }
@@ -259,3 +259,19 @@ if($tres > 10 && $tres < 90){
 $atsakymas = floor($Suma / $counter);
 echo "Avg: $vidurkis <br>";
 echo "Sorted Avg: $atsakymas <br>";
+
+echo '<br>';
+echo '=====10=====';
+echo '<br>';
+
+$H = rand(0, 23);
+$M = rand(0, 59);
+$S = rand(0, 59);
+
+$addTime = rand(0, 300);
+$addTimeMinutes = $addTime / 60;
+$suapvalintasAddTimeMinutes = round($addTimeMinutes, 2);
+echo 'dadetas laikas sekundemis:' . $addTime . '<br>';
+echo 'dadetas laikas minutemis:' . $suapvalintasAddTimeMinutes . '<br>';
+
+echo $H . ':' . $M . ':' . $S;
