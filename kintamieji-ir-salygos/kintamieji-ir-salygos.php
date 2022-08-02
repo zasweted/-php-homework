@@ -168,7 +168,7 @@ echo '<br>';
 
 $randInHTag = rand(1, 6);
 
-echo "<h3>$randInHTag</h3>";
+echo "<h$randInHTag>$randInHTag</h$randInHTag>";
 
 echo '<br>';
 echo '=====7=====';
@@ -238,35 +238,24 @@ $uno = rand(0, 100);
 $dos = rand(0, 100);
 $tres = rand(0, 100);
 echo "Uno: $uno, Dos: $dos, Tres: $tres <br>";
-$failNum = 0;
 $vidurkis = ($uno + $dos + $tres) / 3;
-echo "$vidurkis <br>";
-$newUno = '';
-$newDos = '';
-$newTres = '';
+
+$Suma = 0;
+$counter = 0;
 if($uno > 10 && $uno < 90){
-    $newUno .= $uno;
-    }else{
-        $failNum .= $uno;
-    }
+    $Suma = $Suma + $uno;
+    $counter++;
+}
 if($dos > 10 && $dos < 90){
-    $newDos .= $dos;
-    }else{
-        $failNum .= $dos;
-    }
+    $Suma = $Suma + $dos;
+    $counter++;
+}
 if($tres > 10 && $tres < 90){
-    $newTres .= $tres;
-}else{
-    $failNum .= $tres;
+    $Suma = $Suma + $tres;
+    $counter++;
 }
 
-echo "NewUno $newUno <br>";
-echo "NewDos $newDos <br>";
-echo "NewTres $newTres <br>";
-$newString = $newUno + $newDos + $newTres;
-echo '<br>';
-echo strlen($newString);
-$count = strlen($newString);
-echo "$newString <br>";
-$newAvg = $newString / $count;
-echo "Sorted avg: $newAvg <br>";
+
+$atsakymas = floor($Suma / $counter);
+echo "Avg: $vidurkis <br>";
+echo "Sorted Avg: $atsakymas <br>";
