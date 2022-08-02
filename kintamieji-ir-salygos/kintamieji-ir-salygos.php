@@ -211,3 +211,32 @@ if($trys < 0){
 echo '<br>';
 echo '=====8=====';
 echo '<br>';
+
+$zvakiuKiekis = rand(5, 3000);
+$suma = $zvakiuKiekis * 1;
+$trysProcNuolaida = $suma / 100 * 3;
+$keturiProcNuolaida = $suma / 100 * 4;
+$sumaPoTrejuProcNuolaidos = $suma - $trysProcNuolaida;
+$sumaPoKeturiuProcNuolaidos = $suma - $keturiProcNuolaida;
+if($zvakiuKiekis <= 1000){
+    echo "Parduota zvakiu: $zvakiuKiekis<br> Galutine kaina: $suma";
+}else{
+    if($zvakiuKiekis <= 2000){
+        echo "Parduota zvakiu: $zvakiuKiekis<br> Kaina be nuolaidos: $suma <br> Nuolaida: $trysProcNuolaida<br> Galutine kaina po nuolaidos: $sumaPoTrejuProcNuolaidos";
+    }else{
+        if($zvakiuKiekis >2000){
+            echo "Parduota zvakiu: $zvakiuKiekis <br> Kaina be nuolaidos: $suma <br> Nuolaida: $keturiProcNuolaida <br> Galutine kaina po nuolaidos: $sumaPoKeturiuProcNuolaidos ";
+        }
+    }
+}
+
+echo '<br>';
+echo '=====9=====';
+echo '<br>';
+
+$uno = rand(0, 100);
+$dos = rand(0, 100);
+$tres = rand(0, 100);
+$vidurkis = ($uno + $dos + $tres) / 3;
+echo $vidurkis;
+
