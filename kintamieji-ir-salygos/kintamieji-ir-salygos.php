@@ -237,6 +237,36 @@ echo '<br>';
 $uno = rand(0, 100);
 $dos = rand(0, 100);
 $tres = rand(0, 100);
+echo "Uno: $uno, Dos: $dos, Tres: $tres <br>";
+$failNum = 0;
 $vidurkis = ($uno + $dos + $tres) / 3;
-echo $vidurkis;
+echo "$vidurkis <br>";
+$newUno = '';
+$newDos = '';
+$newTres = '';
+if($uno > 10 && $uno < 90){
+    $newUno .= $uno;
+    }else{
+        $failNum .= $uno;
+    }
+if($dos > 10 && $dos < 90){
+    $newDos .= $dos;
+    }else{
+        $failNum .= $dos;
+    }
+if($tres > 10 && $tres < 90){
+    $newTres .= $tres;
+}else{
+    $failNum .= $tres;
+}
 
+echo "NewUno $newUno <br>";
+echo "NewDos $newDos <br>";
+echo "NewTres $newTres <br>";
+$newString = $newUno + $newDos + $newTres;
+echo '<br>';
+echo strlen($newString);
+$count = strlen($newString);
+echo "$newString <br>";
+$newAvg = $newString / $count;
+echo "Sorted avg: $newAvg <br>";
