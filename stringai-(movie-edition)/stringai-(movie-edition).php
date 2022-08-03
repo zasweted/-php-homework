@@ -61,9 +61,9 @@ $breakfast = 'Breakfast at Tiffany`s' ;
 $space = '2001: A Space Odyssey';
 $life = 'It`s a Wonderful Life';
 
-$replaceBreakfast = preg_replace('#[aeiou\s]+#i', '', $breakfast);
-$replaceSpace = preg_replace('#[aeiou\s]+#i', '', $space);
-$replaceLife = preg_replace('#[aeiou\s]+#i', '', $life);
+$replaceBreakfast = preg_replace('/[aeiou\s]+/i', '', $breakfast);
+$replaceSpace = preg_replace('/[aeiou\s]+/i', '', $space);
+$replaceLife = preg_replace('/[aeiou\s]+/i', '', $life);
 echo $replaceBreakfast . '<br>';
 echo $replaceSpace . '<br>';
 echo $replaceLife . '<br>';
@@ -119,13 +119,3 @@ $abecele = 'abcdefghijklmnopqrstuvwxyz';
 echo substr(str_shuffle($abecele), 0, 3);
 
 
-echo '<br>';
-echo '=====11=====';
-echo '<br>';
-
-$combo = [$countWords . $countWordsLtu];
-$randWord = [rand(0, -1)];
-
-foreach($randWord as $var){
-    echo($var . ' ');
-}
