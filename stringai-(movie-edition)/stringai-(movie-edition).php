@@ -60,7 +60,72 @@ echo '<br>';
 $breakfast = 'Breakfast at Tiffany`s' ;
 $space = '2001: A Space Odyssey';
 $life = 'It`s a Wonderful Life';
-$balses = array('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U') . '<br>';
-echo $balses;
-$replaceBreakfast = str_replace($balses, '', $breakfast);
+
+$replaceBreakfast = preg_replace('#[aeiou\s]+#i', '', $breakfast);
+$replaceSpace = preg_replace('#[aeiou\s]+#i', '', $space);
+$replaceLife = preg_replace('#[aeiou\s]+#i', '', $life);
 echo $replaceBreakfast . '<br>';
+echo $replaceSpace . '<br>';
+echo $replaceLife . '<br>';
+
+echo '<br>';
+echo '=====8=====';
+echo '<br>';
+
+$starWars = 'Star Wars: Episode ' . str_repeat(' ', rand(0, 5)) . rand(1, 9) . ' A New Hope';
+echo $starWars . '<br>';
+$number = filter_var($starWars, FILTER_SANITIZE_NUMBER_INT);
+echo 'Epizodo skaicius:' . $number . '<br>';
+
+echo '<br>';
+echo '=====9=====';
+echo '<br>';
+
+$movieName = 'Don`t Be a Menace to South Central While Drinking Your Juice in the Hood';
+$countWords = explode(' ', $movieName);
+$lessOrEqualsFive = 0;
+foreach($countWords as $val){
+    echo($val . ' ');
+}
+echo '<br>';
+foreach($countWords as $val){
+    if(mb_strlen($val) <= 5){
+        $lessOrEqualsFive++ ;
+    }
+}
+
+echo 'Zodziu kiekis trumpesniu ar lygiu 5: ' . $lessOrEqualsFive . '<br>';
+
+$movieNameLtu = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
+$countWordsLtu = explode(' ', $movieNameLtu);
+$lessOrEqualsFiveLtu = 0;
+foreach($countWordsLtu as $val){
+    echo($val . ' ');
+}
+echo '<br>';
+foreach($countWordsLtu as $val){
+    if(mb_strlen($val) <= 5){
+        $lessOrEqualsFiveLtu++ ;
+    }
+}
+
+echo 'Zodziu kiekis trumpesniu ar lygiu 5(Ltu version): ' . $lessOrEqualsFiveLtu . '<br>';
+
+echo '<br>';
+echo '=====10=====';
+echo '<br>';
+
+$abecele = 'abcdefghijklmnopqrstuvwxyz';
+echo substr(str_shuffle($abecele), 0, 3);
+
+
+echo '<br>';
+echo '=====11=====';
+echo '<br>';
+
+$combo = [$countWords . $countWordsLtu];
+$randWord = [rand(0, -1)];
+
+foreach($randWord as $var){
+    echo($var . ' ');
+}
