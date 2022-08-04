@@ -34,7 +34,7 @@
                     
                     ?> -->
                     <?php for($i = 0; $i < 8; $i++){ ?>
-                        <p class="color"><?php echo str_repeat('*' , 50) ; ?></p>
+                        <p class="color"><?php echo str_repeat('*' , 50); ?></p>
                     <?php } ?> 
                     
         </div>
