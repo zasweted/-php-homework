@@ -268,10 +268,30 @@ $H = rand(0, 23);
 $M = rand(0, 59);
 $S = rand(0, 59);
 
+
+
 $addTime = rand(0, 300);
-$addTimeMinutes = $addTime / 60;
 $suapvalintasAddTimeMinutes = round($addTimeMinutes, 2);
 echo 'dadetas laikas sekundemis:' . $addTime . '<br>';
 echo 'dadetas laikas minutemis:' . $suapvalintasAddTimeMinutes . '<br>';
+if($S = $S + $addTime >= 59){
+    $finalS = $S;
+}else{
+    while($S >= 59){
+        $S -= 60;
+        $M++;
+    }
+}
 
-echo $H . ':' . $M . ':' . $S;
+if($M >= 59){
+    $finalM = $M;
+}else{
+    while($M >= 59){
+        $M -=60;
+        $H++;
+    }
+}
+
+echo $H . ':' . $M . ':' . $S . '<br>';
+
+echo $H . ':' . $finalM . ':' . $finalS . '<br>' ;
