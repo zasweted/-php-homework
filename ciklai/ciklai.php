@@ -82,5 +82,19 @@
             ?>
         </div>
     </section>
+    <section style="display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;">4. uzduotis
+        <div style="line-height: 3.5px; font-size: 10px">
+            <?php 
+                for($i = 0; $i < 100;$i++){
+                    echo '<p style="margin: 1px;">' . str_repeat('*', 100) . '</p>';
+                }
+            ?>
+        </div>
+            
+        
+    </section>
 </body>
 </html>
