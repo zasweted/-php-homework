@@ -9,7 +9,9 @@
 </head>
 <body>
     <section>1. a) uzduotis
-        <div class="container">
+        <div style="display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;">
                 <?php for($i = 0; $i < 400; $i++){ ?>
                         <p class="color"><?php echo '*' ; ?></p>
                     <?php } ?>        
@@ -60,6 +62,23 @@
                     }
                 }
                 echo 'Daugiau uz 150:' . $daugiauUz150;
+            ?>
+        </div>
+    </section>
+    <section style="display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;">3. uzduotis
+        <div style="display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;">
+            <?php 
+                $emptyNumbers = '';
+                for($i = 0;$i < rand(3000, 4000); $i++){
+                    if($i % 77 === 0){
+                        $emptyNumbers .= "$i, ";
+                    }
+                }
+                echo substr($emptyNumbers, 0, -2) ;
             ?>
         </div>
     </section>
