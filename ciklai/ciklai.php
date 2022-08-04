@@ -38,7 +38,7 @@
         </div>
     </section>
     <section class="container">2. uzduotis
-        <div>
+        <div style="display: flex; flex-wrap: wrap; flex-direction: row; gap: 8px;">
             <?php
                 $numbers = '';
                 
@@ -46,15 +46,20 @@
                 for($i = 0; $i < 300; $i++){
                     $numbers = $numbers . ' ' . + rand(0, 300);
                 }
-                echo $numbers . '<br>';
-                echo '<br>';
+                
                 $splitNumbers = explode(' ', $numbers);
                 foreach($splitNumbers as $number){
                     if($number > 150){
+                        echo '<p>' . $number . '</p>';
                         $daugiauUz150++;
+                    }else{
+                        echo '<p>' . $number . '</p>';
+                    }
+                    if($number > 275){
+                        echo '<p style="color: red;">' . $number . '</p>';
                     }
                 }
-                echo 'Daugiau uz 150:' . $daugiauUz150 . '<br>';
+                echo 'Daugiau uz 150:' . $daugiauUz150;
             ?>
         </div>
     </section>

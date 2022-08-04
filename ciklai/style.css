@@ -4,6 +4,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.numbers {
+    flex-direction: row;
+}
 
 
 .color {
