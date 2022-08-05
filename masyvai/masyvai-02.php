@@ -72,7 +72,7 @@ echo '<br>';
 
 $uniqMas = array_unique($_ABCD);
 print_r($uniqMas);
-echo "Uniq Count". count($uniqMas) . "\n";
+echo "Uniq Count: ". count($uniqMas) . "\n";
 
 
 
