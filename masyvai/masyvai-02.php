@@ -117,3 +117,49 @@ print_r($nuMas02);
 echo '<br>';
 echo '=====7=====';
 echo '<br>';
+
+$naujasMas01 =[];
+
+foreach($nuMas01 as $a){
+    if($a != in_array($a, $nuMas02)){
+        $naujasMas01[] = $a;
+    }
+}
+echo 'Reiksmes kuriu nera $nuMas02:';
+print_r($naujasMas01);
+
+echo '<br>';
+echo '=====8=====';
+echo '<br>';
+
+$naujasMas02 =[];
+foreach($nuMas01 as $a){
+    if($a == in_array($a, $nuMas02)){
+        $naujasMas02[] = $a;
+    }
+}
+echo 'Reiksmes kurios yra $nuMas01 ir $nuMas02 masyvose:';
+print_r($naujasMas02);
+
+echo '<br>';
+echo '=====9=====';
+echo '<br>';
+
+$comboMas = array_combine($nuMas02, $nuMas01);
+echo 'Combo masyvas:';
+print_r($comboMas);
+
+echo '<br>';
+echo '=====10=====';
+echo '<br>';
+
+$fi =[];
+foreach(range(0, 1) as $a){
+    $fi[] = rand(5, 25);
+}
+
+for($i = 2; $i < 10; $i++){
+    $fi[$i] = $fi[$i - 1] + $fi[$i - 2];
+}
+echo 'Fibonacci:';
+print_r($fi);
