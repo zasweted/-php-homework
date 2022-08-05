@@ -66,15 +66,54 @@ foreach(range(0, 199) as $i => $a){
 }
 
 print_r($_ABCD);
-echo '<br>';
-echo '=====6=====';
-echo '<br>';
+
 
 $uniqMas = array_unique($_ABCD);
 print_r($uniqMas);
 echo "Uniq Count: ". count($uniqMas) . "\n";
 
+$countedABCD = array_count_values($_ABCD);
+$strictUniqMas = [];
+
+foreach($countedABCD as $i => $a){
+    if($a == 1){
+        $strictUniqMas[] = $i;
+    }
+}
+echo 'Strict Uniq ABCD';
+print_r($strictUniqMas) . "\n";
+echo 'Ne karta nesikartojanciu reiksmiu skaicius:' . count($strictUniqMas);
 
 
 
-print_r($filterMas);
+
+// print_r($filterMas);
+
+echo '<br>';
+echo '=====6=====';
+echo '<br>';
+
+$nuMas01 = [];
+$nuMas02 = [];
+
+while(count($nuMas01) < 100){
+    $push = rand(100, 999);
+        if($push != in_array($push, $nuMas01)){
+            $nuMas01[] = $push;
+        }
+}
+
+while(count($nuMas02) < 100){
+    $push = rand(100, 999);
+        if($push != in_array($push, $nuMas02)){
+            $nuMas02[] = $push;
+        }
+}
+echo 'Pirmas uniq';
+print_r($nuMas01);
+echo 'Antras uniq';
+print_r($nuMas02);
+
+echo '<br>';
+echo '=====7=====';
+echo '<br>';
