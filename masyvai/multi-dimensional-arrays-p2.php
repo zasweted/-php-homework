@@ -77,14 +77,68 @@ echo '=====8=====';
 echo '<br>';
 
 $_masyvs = [];
-foreach(range(0, 9) as $a){
-    $numb[] = rand(0, 5);
-    foreach($numb as $b){
-        $_masyvs[$a][] = $b;
-    }
 
+
+foreach(range(0, 9) as $a){
+    $rand = rand(0, 4);
+    foreach(range(0, $rand) as $b){
+        if($rand !== 0){
+            $_masyvs[$a][] = rand(5, 10);
+        }else{
+            $_masyvs[] = rand(0, 10);
+        }
+    }
 }
 
-echo "RNG masyfs: \n";
 print_r($_masyvs);
+
+echo '<br>';
+echo '=====9=====';
+echo '<br>';
+
+sort($_masyvs);
+echo "Sortintas Masyvas 8 uzduoties: \n";
+print_r($_masyvs);
+
+$_sumMas = [];
+foreach($_masyvs as $a){
+    if(is_array($a) == true){
+        $_sumMas[] = array_sum($a);
+    }else{
+        $_sumMas[] = $a;
+    }
+    
+}
+echo "Sumuotas Masyvas 8 uzduoties: \n";
+print_r($_sumMas);
+
+$_sumAll = array_sum($_sumMas);
+echo "Bendra suma: \n";
+echo $_sumAll;
+
+echo '<br>';
+echo '=====10=====';
+echo '<br>';
+
+$_keyz = ['value', 'color'];
+$colorMas = [];
+foreach(range(0, 9) as $a){
+    foreach($_keyz as $key){
+        $color = substr(md5(rand()), 0, 6);
+        if($key == 'value'){
+            $colorMas[$a][$key] = ['#', '%', '+', '*', '@', '裡'][rand(0, 5)];
+        }else{
+            $colorMas[$a][$key] = '#' . $color;
+        }
+    }
+}
+print_r($colorMas);
+
+?>
+
+<?php for($i = 0; $i < 20; $i++){
+    foreach($colorMas as $a){
+    } ?>
+<div style="color: <?php echo $a['color']; ?>; line-height: 0px; margin: 0; font-size: 15px;"><?php echo str_repeat($a['value'] , 50); ?></div>
+<?php } ?>
 
