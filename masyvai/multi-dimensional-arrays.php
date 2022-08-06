@@ -92,16 +92,22 @@ foreach(range(0, 9) as $a){
         $multiAToZMas[$a][] = $randLetter;
     }
 }
-
 echo 'Multi random A to Z array:';
 print_r($multiAToZMas);
 
 $multiSorted = [];
-foreach($multiAToZMas as $a){
-    foreach($a as $b){
-        print_r($a)  . "\n";
-    }
+foreach($multiAToZMas as $i => $a){
+    sort($a);
+    $multiSorted[] = $a;
+    
 }
 
-echo 'Multi Sorted Array:';
+echo 'MULTI_SORTED';
 print_r($multiSorted);
+
+echo '<br>';
+echo '=====4=====';
+echo '<br>';
+
+
+
