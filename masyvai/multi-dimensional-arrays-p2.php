@@ -136,7 +136,7 @@ print_r($colorMas);
 
 ?>
 
-<?php for($i = 0; $i < 20; $i++){
+<?php for($i = 0; $i < 25; $i++){
     foreach($colorMas as $a){
     } ?>
 <div style="color: <?php echo $a['color']; ?>; line-height: 0px; margin: 0; font-size: 15px;"><?php echo str_repeat($a['value'] , 50); ?></div>
