@@ -62,9 +62,9 @@ echo '<br>';
 echo '=====2.(d)=====';
 echo '<br>';
 
-foreach(range(0, 9) as $a){
-    foreach(range(5, 6) as $b){
-        $multiMas[$a][] = rand(5, 25);
+foreach($multiMas as $i => $a){
+    foreach(range(0, 1) as $b){
+        $multiMas[$i][] = rand(5, 25);
     }
 }
 echo 'Papilditas masyvas:';
@@ -109,5 +109,26 @@ echo '<br>';
 echo '=====4=====';
 echo '<br>';
 
+$masWithK = [];
+$masWithoutK = [];
+foreach($multiAToZMas as $key){
+    if(in_array('K', $key) == true){
+        $masWithK[] = $key;
+    }else{
+        $masWithoutK[] = $key;
+    }
+}
 
+usort($masWithK, function($a, $b) {
+    return count($a) > count($b);
+});
+
+usort($masWithoutK, function($a, $b) {
+    return count($a) > count($b);
+});
+
+
+echo 'SURUSIOTA K IS PRIEKIO, NUO TRUMPIAUSIO PASKUI:'. "\N";
+$kFirstThenRestMinToMax = array_merge($masWithK, $masWithoutK);
+print_r($kFirstThenRestMinToMax);
 
