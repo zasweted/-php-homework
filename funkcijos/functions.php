@@ -87,26 +87,22 @@ print_r($_300Prime);
 echo '<br>';
 echo '=====7=====';
 echo '<br>';
-$ciklai = rand(10, 30);
-$random = rand(10, 20);
-$generatedArray = randomArrayGenerator($random, $ciklai);
-function randomArrayGenerator(int $arrayLength, $cycle) {
-    $masyf =[];
+
+
+
+function randomArrayGenerator(int $arrayLength) {
     static $counter = 0;
-    foreach(range(1, $arrayLength -1) as $i => $a){
-        $masyf[] = rand(0,10);
-    }
-    $counter++;
-    do{
-        $masyf[] = randomArrayGenerator($arrayLength, $cycle);
+    $masyf = [];
+    while($counter < rand(10, 30)){
         $counter++;
-    }while($counter < $cycle);
+        foreach(range(1, $arrayLength -1) as $a){
+            $masyf[] = rand(0,10);
+        }
+        $masyf[] = [randomArrayGenerator(5)];
 
 
-    
-    
+    }
     return $masyf;
 }
 
-echo "COUNTER: \n";
-print_r($generatedArray);
+print_r(randomArrayGenerator(rand(10, 20)));
