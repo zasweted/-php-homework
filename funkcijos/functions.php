@@ -98,7 +98,7 @@ function randomArrayGenerator(int $arrayLength) {
         foreach(range(1, $arrayLength -1) as $a){
             $masyf[] = rand(0,10);
         }
-        $masyf[] = [randomArrayGenerator(5)];
+        $masyf[] = [randomArrayGenerator($arrayLength)];
 
 
     }
