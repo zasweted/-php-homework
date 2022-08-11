@@ -2,6 +2,18 @@
 
 $getColor = $_GET['color'] ?? 'white';
 
+function doColor(){
+    if(!isset($_GET['color'])) {
+        return 'black';
+    }
+    $color = $_GET['color'];
+    
+    if(preg_match('/\[0-9A-F]{6}/i', $color)) {
+        return '#'.$color;
+    }
+    return $color; // idedam $doColor i body style.
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

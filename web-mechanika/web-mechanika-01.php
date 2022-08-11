@@ -1,7 +1,7 @@
 <?php
 
 
-$getColor = $_GET['color'] ?? null;
+$getColor = $_GET['color'] ?? 'black';
 if($getColor == 1){
     $color = '#990000';
     $fontColor = '#000';
@@ -9,6 +9,8 @@ if($getColor == 1){
     $color = '#000';
     $fontColor = '#fff';
 }
+
+// $otherWay = isset($_GET['color']) ? 'crimson' : 'black';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +18,7 @@ if($getColor == 1){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web_Mechanika_01t</title>
+    <title>Web_Mechanika_01</title>
 </head>
 <body style="background-color:<?= $color ?>; display: flex; flex-direction: column; justify-content: center; align-items: center">
         <a style="color:<?= $fontColor ?>; font-size: 30px" href="?color=1">Crimson</a>
