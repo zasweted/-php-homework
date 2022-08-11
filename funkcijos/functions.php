@@ -140,21 +140,21 @@ echo '=====9=====';
 echo '<br>';
 echo '<hr>';
 
-function primeNumberArray($arrayLength){
-    $masyf = [];
-    $counter = 0;
-    foreach(range(1, $arrayLength) as $_){
-        $masyf[] = rand(1, 33);
-    }
-    foreach($masyf as $val){
-        for($i = ($val -1); $i > 1; $i--){
-            if($val % $i != 0){
-                $counter++;
-               }
-           }
-    }
+// function primeNumberArray($arrayLength){
+//     $masyf = [];
+//     $counter = 0;
+//     foreach(range(1, $arrayLength) as $_){
+//         $masyf[] = rand(1, 33);
+//     }
+//     foreach($masyf as $val){
+//         for($i = ($val -1); $i > 1; $i--){
+//             if($val % $i != 0){
+//                 $counter++;
+//                }
+//            }
+//     }
 
 
-    return $val;
-};
-print_r(primeNumberArray(3));
+//     return $val;
+// };
+// print_r(primeNumberArray(3));
