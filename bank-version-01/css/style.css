@@ -13,3 +13,34 @@
     gap: 20px;
 }
 
+body .btnnew {
+    padding: 10px 20px;
+    border: 20px solid #000;
+    text-decoration: none;
+    border-radius: 50px;
+    color: #000;
+    background-color: skyblue;
+    font-size: 12px;
+    cursor: pointer;
+}
+form > .btn {
+    padding: 3px 10px;
+    border: 1px solid #000;
+    text-decoration: none;
+    border-radius: 50px;
+    color: #000;
+    background-color: skyblue;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* body > a > .btn {
+    padding: 3px 10px;
+    border: 1px solid #000;
+    text-decoration: none;
+    border-radius: 50px;
+    color: #000;
+    background-color: skyblue;
+    font-size: 12px;
+    cursor: pointer;
+} */

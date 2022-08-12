@@ -17,7 +17,15 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
     die;
 }
 
-
+// function nameValidation(){
+//     $name = $_POST['vardas'];
+//     $nameLen = strlen($name);
+//     if($nameLen < 3){
+//         echo 'trumpas vardas';
+//     }else {
+//         return $_POST['vardas'];
+//     }
+// };
 
 
 /* IBAN generator start */
@@ -50,14 +58,14 @@ $_IBAN = 'LT'. $_18digits;
                 <input type="text" name="vardas" value=""  placeholder="Vardas" />
                 <input type="text" name="pavarde" value="" placeholder="Pavarde" />
                 <input type="text" name="asmensKodas" value="" placeholder="Asmens Kodas" />
-                <input type="text" name="iban" value="<?= $_IBAN ?>" hidden readonly />
                 <input type="number" name="pinigai" value="0" hidden />
-                <button type="submit">Sukurti</button>
+                <input type="text" name="iban" value="<?= $_IBAN ?>" hidden readonly />
+                <button class="btn" type="submit">Sukurti</button>
             </form>
         </fieldset>
     </div>
 
 
-    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Perziureti Sarasa</a>
+    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Perziureti Sarasa</a>
 </body>
 </html>
