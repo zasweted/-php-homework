@@ -24,7 +24,7 @@ if(isset($_GET)){
                     <?php endforeach ?>
                     <?php endif ?>
                     <?php endforeach ?>
-
+                    Nuskaicioti pinigu: <input type="number" name="amount" placeholder="Iveskite norima suma" />
     </div>
     <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
     <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grizti i sarasa</a>
