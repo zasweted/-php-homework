@@ -11,8 +11,8 @@
         <h1>Klientu sarasas</h1>
         <ul>
             <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $val): ?>
-                <?php foreach($val as $a): ?>
-                    <li><?= $a ?></li>
+                <?php foreach($val as $i => $a): ?>
+                    <li><?= $i. ': '.$a?></li>
                     <?php endforeach ?>
                         <form action="">
                             <button>Koreguoti</button>

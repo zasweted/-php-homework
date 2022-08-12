@@ -5,34 +5,11 @@ if (!file_exists(__DIR__ . '/data.json')){
 }
 
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-    $userName = $_POST['vardas'] ?? 'Laba diena';
-    $userSurname = $_POST['pavarde'] ?? 'Laba diena';
-    $userPersonalId = $_POST['asmensKodas'] ?? 'Laba diena';
-    $userIban = $_POST['iban'] ?? 'Laba diena';
-    $userMoneyAtStart = $_POST['pinigai'] ?? 'Laba diena';
+    $userPost = $_POST ?? 'ERROR';
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'));
 
-
-    
-    $data[] = ['user_name' => $userName, 'user_surname' => $userSurname, 'user_personal_id' => $userPersonalId, 'user_iban' => $userIban, 'user_funds' => $userMoneyAtStart];
-    // foreach($data as $a){
-    //     foreach($keys as $key) {
-    //         if($key == 'user_name'){
-    //             $data[$a][$key] = $userName;
-    //         }else{
-    //             if($key == 'user_surname'){
-    //                 $data[$a][$key] = $userSurname;
-    //             }else {
-    //                 if($key == 'user_personal_id'){
-    //                     $data[$a][$key] = $userPersonalId;
-    //                 }else{
-    //                     $data[$a][$key] = $userIban;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+    $data[] = $userPost;
     
     file_put_contents(__DIR__ . '/data.json', json_encode($data));
 
@@ -70,10 +47,10 @@ $_IBAN = 'LT'. $_18digits;
         <h1 class="title">Naujos banko saskaitos atidarimas</h1>
         <fieldset>
             <form class="form" action="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php" method="post">
-                <input type="text" name="vardas"  placeholder="Vardas" />
-                <input type="text" name="pavarde" placeholder="Pavarde" />
-                <input type="text" name="asmensKodas" placeholder="Asmens Kodas" />
-                <input type="text" name="iban" value="<?= $_IBAN ?>" placeholder="IBAN" readonly />
+                <input type="text" name="vardas" value=""  placeholder="Vardas" />
+                <input type="text" name="pavarde" value="" placeholder="Pavarde" />
+                <input type="text" name="asmensKodas" value="" placeholder="Asmens Kodas" />
+                <input type="text" name="iban" value="<?= $_IBAN ?>" hidden readonly />
                 <input type="number" name="pinigai" value="0" hidden />
                 <button type="submit">Sukurti</button>
             </form>
@@ -81,6 +58,6 @@ $_IBAN = 'LT'. $_18digits;
     </div>
 
 
-    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">List</a>
+    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Perziureti Sarasa</a>
 </body>
 </html>
