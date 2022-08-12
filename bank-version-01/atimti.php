@@ -15,7 +15,7 @@ if(isset($_GET)){
     <title>Document</title>
 </head>
 <body>
-    <h1>Prideti pinigu</h1>
+    <h1>Atimti Pinigu</h1>
     <div>
         <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a) : ?>
             <?php if($i == $index) :?>
