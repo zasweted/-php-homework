@@ -1,8 +1,8 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $checked = count($_POST['c'] ?? []);
-    header('Location : http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php?all='.$checked);
+    header('Location: http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php?all='.$checked);
     die;
 }
 
