@@ -11,6 +11,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 $color = isset($_GET['all']) ? 'white' : 'black';
 $ak = range('A', 'J');
 $count = rand(3, 10);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,27 +23,26 @@ $count = rand(3, 10);
     <title>Document</title>
 </head>
 <body style="background-color:<?= $color ?>">
-    <?php if(isset($_GET['all'])): ?>
+<?php if(isset($_GET['all'])): ?>
 
-        <a href="http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php">BACK</a>
+<a href="http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php">BACK</a>
 
-        <h1>ALL CHECKED IS : <?= $_GET['all'] ?></h1>
+<h1>ALL CHECKED IS : <?= $_GET['all'] ?></h1>
 
-        <?php else: ?>
+<?php else: ?>
     <div style="background-color: white;">
 
         <form action="http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php" method="post">
         
-            <?php
-                foreach(range(1, $count) as $number) : ?>
-                    <input type="checkbox" name="c[]" /><?= $ak[$number -1] ?>
+            <?php foreach(range(1, $count) as $number) : ?>
+            <input type="checkbox" name="c[]" value="<?= $ak[$number -1] ?>" /><?= $ak[$number -1] ?>
             <?php endforeach ?>    
         
         
-        <button type="submit">GO</button>
+            <button type="submit">GO</button>
         </form>
 
     </div>
-    <?php endif ?>
+<?php endif ?>
 </body>
 </html>
