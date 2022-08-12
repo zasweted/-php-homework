@@ -1,7 +1,7 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $checked = count($_POST['c']);
+    $checked = count($_POST['c'] ?? []);
     header('Location : http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php?all='.$checked);
     die;
 }
@@ -21,8 +21,15 @@ $count = rand(3, 10);
     <title>Document</title>
 </head>
 <body style="background-color:<?= $color ?>">
-    
+    <?php if(isset($_GET['all'])): ?>
+
+        <a href="http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php">BACK</a>
+
+        <h1>ALL CHECKED IS : <?= $_GET['all'] ?></h1>
+
+        <?php else: ?>
     <div style="background-color: white;">
+
         <form action="http://localhost/-php-homework-/-php-homework/web-mechanika/web-mechanika-09.php" method="post">
         
             <?php
@@ -35,6 +42,6 @@ $count = rand(3, 10);
         </form>
 
     </div>
-    
+    <?php endif ?>
 </body>
 </html>
