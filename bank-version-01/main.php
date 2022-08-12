@@ -9,12 +9,13 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
     $userSurname = $_POST['pavarde'] ?? 'Laba diena';
     $userPersonalId = $_POST['asmensKodas'] ?? 'Laba diena';
     $userIban = $_POST['iban'] ?? 'Laba diena';
+    $userMoneyAtStart = $_POST['pinigai'] ?? 'Laba diena';
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'));
 
 
     
-    $data[] = ['user_name' => $userName, 'user_surname' => $userSurname, 'user_personal_id' => $userPersonalId, 'user_iban' => $userIban];
+    $data[] = ['user_name' => $userName, 'user_surname' => $userSurname, 'user_personal_id' => $userPersonalId, 'user_iban' => $userIban, 'user_funds' => $userMoneyAtStart];
     // foreach($data as $a){
     //     foreach($keys as $key) {
     //         if($key == 'user_name'){
@@ -73,6 +74,7 @@ $_IBAN = 'LT'. $_18digits;
                 <input type="text" name="pavarde" placeholder="Pavarde" />
                 <input type="text" name="asmensKodas" placeholder="Asmens Kodas" />
                 <input type="text" name="iban" value="<?= $_IBAN ?>" placeholder="IBAN" readonly />
+                <input type="number" name="pinigai" value="0" hidden />
                 <button type="submit">Sukurti</button>
             </form>
         </fieldset>

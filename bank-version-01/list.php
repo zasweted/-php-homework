@@ -7,14 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <ul>
-        <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $val): ?>
-            <?php foreach($val as $a): ?>
-            <li><?= $a ?></li>
+    <div>
+        <h1>Klientu sarasas</h1>
+        <ul>
+            <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $val): ?>
+                <?php foreach($val as $a): ?>
+                    <li><?= $a ?></li>
+                    <?php endforeach ?>
+                        <form action="">
+                            <button>Koreguoti</button>
+                            <button>Istrinti</button>
+                            <button>issauguoti</button>
+                        </form>
                 <?php endforeach ?>
-            <?php endforeach ?>
-    </ul>
-
+        </ul>
+        
+    </div>
+<a href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
 </body>
 </html>

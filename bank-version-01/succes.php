@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Banko saskaita sekmingai sukurta!!</h1>
-    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Back</a>
+    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
+    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Perziureti Sarasa</a>
 </body>
 </html>
