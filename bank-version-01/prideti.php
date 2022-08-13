@@ -13,6 +13,9 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
     }
     file_put_contents(__DIR__ . '/data.json', json_encode($data));
     print_r($cashOperation);
+
+    header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-prideta.php');
+    die;
 }
 
 
@@ -44,5 +47,6 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
     </div>
     <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
     <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grizti i sarasa</a>
+    
 </body>
 </html>
