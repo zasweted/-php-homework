@@ -1,7 +1,18 @@
 <?php
-
 if(isset($_GET)){
     $index = implode($_GET);
+}
+if('POST' == $_SERVER['REQUEST_METHOD']) {
+    $cashOperation = $_POST ?? $data[$i]['pinigai'];
+
+    $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+    foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
+        if($index == $i){
+            $data[$i]['pinigai'] += implode($cashOperation);
+        }
+    }
+    file_put_contents(__DIR__ . '/data.json', json_encode($data));
+    print_r($cashOperation);
 }
 
 
@@ -17,14 +28,18 @@ if(isset($_GET)){
 <body>
     <h1>Prideti pinigu</h1>
     <div>
-        <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a) : ?>
-            <?php if($i == $index) :?>
-                <?php foreach($a as $val) : ?>
-                    <li><?= $val ?></li>
-                    <?php endforeach ?>
-                    <?php endif ?>
-                    <?php endforeach ?>
-                    Nuskaicioti pinigu: <input type="number" name="amount" placeholder="Iveskite norima suma" />
+        <form action="" method="post">
+            <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a) : ?>
+                <?php if($i == $index) :?>
+                    <?php foreach($a as $val) : ?>
+                        <li><?= $val ?></li>
+                        <?php endforeach ?>
+                        <?php endif ?>
+                        <?php endforeach ?>
+                        Prideti pinigu: <input type="number" name="amount" placeholder="Iveskite norima suma" />
+                        <button type="submit">Prideti</button>
+
+        </form>
 
     </div>
     <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
