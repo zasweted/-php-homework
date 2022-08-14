@@ -13,14 +13,14 @@
         <h1>Klientu sarasas</h1>
         <form method="get">
             <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $index => $val): ?>
-                <button class="btn">Istrinti</button>
-                <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/prideti.php?index=<?= $index ?>" >Prideti liesu</a>
-                <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/atimti.php?index=<?= $index ?>">Atimti liesu</a>
-                        
+                
                 <?php foreach($val as $i => $a): ?>
                     <li><?= $i. ': '.$a?></li>
                     <?php endforeach ?>
-                <?php endforeach ?>
+                    <button class="btn">Istrinti</button>
+                    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/prideti.php?index=<?= $index ?>" >Prideti liesu</a>
+                    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/atimti.php?index=<?= $index ?>">Atimti liesu</a>
+                    <?php endforeach ?>
                 </form>
         
     </div>
