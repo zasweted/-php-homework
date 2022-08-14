@@ -11,6 +11,6 @@
 <body>
 <?php include 'header.php' ?>
     <h1>Pinigai sekmingai prideti!!</h1>
-    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
+    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grizti i sarasa</a>
 </body>
 </html>

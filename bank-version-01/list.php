@@ -1,14 +1,17 @@
 <?php
-// // istrinti is bazes
-// foreach ($arr_index as $i) {
-//     unset($json_arr[$i]);
+// if(isset($_GET)){
+//     $index = implode($_GET);
+
 // }
+// $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
 
-// // rebase array
-// $json_arr = array_values($json_arr);
-
-// // encode array to json and save to file
-// file_put_contents('teste_data.json', json_encode($json_arr));
+// foreach($data as $i => $a){
+//     if($index == $i){
+//         unset($data[$i]);
+//     }
+// }
+// $data = json_encode($data);
+// file_put_contents(__DIR__ . '/data.json', json_encode($data));
 ?>
 <!DOCTYPE html>
 <html lang="en">

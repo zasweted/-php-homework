@@ -1,5 +1,26 @@
 <?php
+$klaida = '';
+$paviko = '';
+if(isset($_GET)){
+    $index = implode($_GET);
+}
 
+
+    $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+    foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
+        if($index == $i && $a['pinigai'] == 0){
+            unset($data[$i]);
+            
+            $paviko = $a['vardas'] . ' ' . $a['pavarde'] . 'Sekmingai istrintas';
+        }else{
+            
+            $klaida = 'Negalima istrinti saskaitos. Saskaitoje yra pinigu.';
+        }
+    }
+    file_put_contents(__DIR__ . '/data.json', json_encode($data));
+    
+
+    
 
 ?>
 <!DOCTYPE html>
@@ -11,6 +32,11 @@
     <title>Document</title>
 </head>
 <body>
-    Sekmingai istrintas
+<?php include 'header.php' ?>
+<p><?=$klaida ?></p>
+<p><?=$paviko ?></p>
+         
+
+    <a href="list.php">Grizti atgal</a>
 </body>
 </html>

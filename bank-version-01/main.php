@@ -75,6 +75,7 @@ function iBAN(){
         $_18digits .= rand(0, 9);
     }
     $_IBAN = 'LT'. $_18digits;
+    return $_IBAN;
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
         $bankoSaskaita = $_IBAN;
             if($bankoSaskaita == in_array($bankoSaskaita, $a)){
@@ -110,7 +111,7 @@ function iBAN(){
                 <input type="text" name="asmensKodas" value="<?= $asmensKodas ?>" placeholder="Asmens Kodas" />
                 <div style="color: red;"><?= $errors['asmensKodas'] ?></div>
                 <input type="number" name="pinigai" value="0" hidden />
-                <input type="text" name="iban" value="<?= iBAN() ?>" hidden readonly />
+                <input type="text" name="iban" value="<?= iBAN() ?>"  readonly />
                 <button class="btn" type="submit" >Sukurti</button>
                 <div style="color: red;"><?= $formError ?></div>
             </form>
