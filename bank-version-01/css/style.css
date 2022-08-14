@@ -34,13 +34,18 @@ form > .btn {
     cursor: pointer;
 }
 
-/* body > a > .btn {
-    padding: 3px 10px;
-    border: 1px solid #000;
-    text-decoration: none;
-    border-radius: 50px;
-    color: #000;
-    background-color: skyblue;
-    font-size: 12px;
-    cursor: pointer;
-} */
+.header {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+
+}
+.logo > img{
+    width: 150px;
+    height: 150px;
+}
+
+.nuorodos > a {
+    text-transform: none;
+}

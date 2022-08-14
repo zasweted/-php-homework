@@ -1,3 +1,15 @@
+<?php
+// // istrinti is bazes
+// foreach ($arr_index as $i) {
+//     unset($json_arr[$i]);
+// }
+
+// // rebase array
+// $json_arr = array_values($json_arr);
+
+// // encode array to json and save to file
+// file_put_contents('teste_data.json', json_encode($json_arr));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +21,7 @@
     <title>Document</title>
 </head>
 <body>
+<?php include 'header.php' ?>
     <div>
         <h1>Klientu sarasas</h1>
         <form method="get">

@@ -29,6 +29,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
     <title>Document</title>
 </head>
 <body>
+<?php include 'header.php' ?>
     <h1>Prideti pinigu</h1>
     <div>
         <form action="" method="post">
