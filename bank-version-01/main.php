@@ -9,7 +9,7 @@ if (!file_exists(__DIR__ . '/data.json')){
 $vardas = $pavarde = $asmensKodas ='';
 $errors = ['vardas' => '', 'pavarde' => '', 'asmensKodas' => ''];
 $formError ='';
-if(isset($_POST['iban'])) {
+if(isset($_POST['vardas'])) {
 
     //vardo tikrinimas
     if(empty($_POST['vardas'])){

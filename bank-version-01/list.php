@@ -30,7 +30,7 @@
                 <?php foreach($val as $i => $a): ?>
                     <li><?= $i. ': '.$a?></li>
                     <?php endforeach ?>
-                    <button class="btn">Istrinti</button>
+                    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/succes-istrinta.php?index=<?= $index ?>">Istrinti</a>
                     <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/prideti.php?index=<?= $index ?>" >Prideti liesu</a>
                     <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/atimti.php?index=<?= $index ?>">Atimti liesu</a>
                     <?php endforeach ?>
