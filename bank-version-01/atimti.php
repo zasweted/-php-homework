@@ -1,24 +1,28 @@
 <?php
+
 if(isset($_GET)){
     $index = implode($_GET);
 }
+$error = '';
 if('POST' == $_SERVER['REQUEST_METHOD']) {
     $cashOperation = $_POST ?? $data[$i]['pinigai'];
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
         if($index == $i){
-            $data[$i]['pinigai'] -= implode($cashOperation);
+            if(($likutis = $data[$i]['pinigai'] - implode($cashOperation)) < 0){
+                $error = 'Galutinis likutis maziau uz 0 <br> Iveskit kita suma';
+            }else{
+                $data[$i]['pinigai'] -= implode($cashOperation);
+                file_put_contents(__DIR__ . '/data.json', json_encode($data));
+                header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-atimta.php');
+                die;
+            }
         }
     }
-    file_put_contents(__DIR__ . '/data.json', json_encode($data));
-    print_r($cashOperation);
+    
 
-    header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-atimta.php');
-    die;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +44,8 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
                         <?php endforeach ?>
                         <?php endif ?>
                         <?php endforeach ?>
-                        Nuskaicioti pinigu: <input type="number" name="amount" placeholder="Iveskite norima suma" />
+                        Nuskaicioti pinigu: <input type="number" name="amount" value="" placeholder="Iveskite norima suma" />
+                        <div style="color: red;"><?=$error?></div>
                         <button type="submit">Nuskaicioti</button>
 
         </form>

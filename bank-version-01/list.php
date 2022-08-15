@@ -1,17 +1,15 @@
 <?php
-// if(isset($_GET)){
-//     $index = implode($_GET);
+$error = '';
+$dataList = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+if(empty($dataList)){
+    $error = 'Vartotoju sarasas tuscias';
+}else{
+    usort($dataList, function($a, $b) {
+    return $a['pavarde'] > $b['pavarde'];
+    });
 
-// }
-// $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+}
 
-// foreach($data as $i => $a){
-//     if($index == $i){
-//         unset($data[$i]);
-//     }
-// }
-// $data = json_encode($data);
-// file_put_contents(__DIR__ . '/data.json', json_encode($data));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +25,9 @@
 <?php include 'header.php' ?>
     <div>
         <h1>Klientu sarasas</h1>
+        <p><?=$error?></p>
         <form method="get">
-            <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $index => $val): ?>
+            <?php foreach($dataList as $index => $val): ?>
                 
                 <?php foreach($val as $i => $a): ?>
                     <li><?= $i. ': '.$a?></li>

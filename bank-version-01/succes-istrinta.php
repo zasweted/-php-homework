@@ -8,16 +8,16 @@ if(isset($_GET)){
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
-        if($index == $i && $a['pinigai'] == 0){
+        if($a['pinigai'] == 0){
             unset($data[$i]);
-            
+            file_put_contents(__DIR__ . '/data.json', json_encode($data));            
             $paviko = $a['vardas'] . ' ' . $a['pavarde'] . 'Sekmingai istrintas';
         }else{
+            $klaida = 'Nepaviko istrinti vartuotojo, saskaitoje yra pinigu likutis';
             
-            $klaida = 'Negalima istrinti saskaitos. Saskaitoje yra pinigu.';
         }
     }
-    file_put_contents(__DIR__ . '/data.json', json_encode($data));
+    
     
 
     
@@ -32,11 +32,8 @@ if(isset($_GET)){
     <title>Document</title>
 </head>
 <body>
-<?php include 'header.php' ?>
-<p><?=$klaida ?></p>
-<p><?=$paviko ?></p>
-         
-
+<?php include 'header.php' ?>        
+<p><?= $klaida, $paviko ?></p>
     <a href="list.php">Grizti atgal</a>
 </body>
 </html>
