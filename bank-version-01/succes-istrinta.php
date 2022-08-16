@@ -1,6 +1,5 @@
 <?php
-$klaida = '';
-$paviko = '';
+$result = '';
 if(isset($_GET)){
     $index = implode($_GET);
 }
@@ -11,9 +10,9 @@ if(isset($_GET)){
         if($a['pinigai'] == 0){
             unset($data[$i]);
             file_put_contents(__DIR__ . '/data.json', json_encode($data));            
-            $paviko = $a['vardas'] . ' ' . $a['pavarde'] . 'Sekmingai istrintas';
+            $result = $a['vardas'] . "\r" . $a['pavarde'] ."\r" . 'Sekmingai istrintas';
         }else{
-            $klaida = 'Nepaviko istrinti vartuotojo, saskaitoje yra pinigu likutis';
+            $result = 'Nepaviko istrinti vartuotojo, saskaitoje yra pinigu likutis';
             
         }
     }
@@ -39,7 +38,7 @@ if(isset($_GET)){
     </section>
     <section class="container col-12 row">
         <div class="container form">
-        <h1><?= $klaida, $paviko ?></h1>
+        <h1><?= $result?></h1>
         </div>
         <div class="container row col-12">
             <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grižti į sąrašą</a>

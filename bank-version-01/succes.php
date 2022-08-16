@@ -9,9 +9,17 @@
     <title>Document</title>
 </head>
 <body>
-<?php include 'header.php' ?>
-    <h1>Banko saskaita sekmingai sukurta!!</h1>
-    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
-    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Perziureti Sarasa</a>
+<section>
+        <?php include 'header.php' ?>
+    </section>
+    <section class="container col-12 row">
+        <div class="container form">
+        <h1>Banko saskaita sekmingai sukurta!!</h1>
+        </div>
+        <div class="container row col-12">
+        <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grižti į pradžia</a>
+    <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Peržiureti sąrašą</a>
+        </div>
+    </section>
 </body>
 </html>
