@@ -78,6 +78,9 @@ background-color: skyblue;
     border-bottom: 1px solid grey;
 }
 
+.input-small {
+    width: 100%;
+}
 .btn {
     padding: 3px 10px;
     text-decoration: none;

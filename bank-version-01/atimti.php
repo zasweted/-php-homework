@@ -4,16 +4,20 @@ if(isset($_GET)){
     $index = implode($_GET);
 }
 $error = '';
+$pinigai = '';
 if('POST' == $_SERVER['REQUEST_METHOD']) {
     $cashOperation = $_POST ?? $data[$i]['pinigai'];
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
         if($index == $i){
-            if(($likutis = $data[$i]['pinigai'] - implode($cashOperation)) < 0){
+            $num = intval(implode($cashOperation));
+            $likutis = $data[$i]['pinigai'] - $num;
+            if($likutis < 0){
                 $error = 'Galutinis likutis maziau uz 0 <br> Iveskit kita suma';
+                $pinigai = $_POST['pinigai'];
             }else{
-                $data[$i]['pinigai'] -= implode($cashOperation);
+                $data[$i]['pinigai'] -= $num;
                 file_put_contents(__DIR__ . '/data.json', json_encode($data));
                 header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-atimta.php');
                 die;
@@ -30,27 +34,42 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-<?php include 'header.php' ?>
-    <h1>Atimti Pinigu</h1>
-    <div>
-        <form action="" method="post">
-            <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a) : ?>
-                <?php if($i == $index) :?>
-                    <?php foreach($a as $val) : ?>
-                        <li><?= $val ?></li>
-                        <?php endforeach ?>
-                        <?php endif ?>
-                        <?php endforeach ?>
-                        Nuskaicioti pinigu: <input type="number" name="amount" value="" placeholder="Iveskite norima suma" />
-                        <div style="color: red;"><?=$error?></div>
-                        <button type="submit">Nuskaicioti</button>
+<section>
+        <?php include 'header.php' ?>
+    </section>
+    <section class="container col-12 row">
+        <div class="container form">
+            <h1 class="title">Nuskaičioti pinigų:</h1>
+            <div>
+                <form action="" method="post">
+                    <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a) : ?>
+                        <?php if($i == $index) :?>
+                            <?php foreach($a as $i => $val) : ?>
+                                <li><span class="list-title"><?= $i?> : </span><span class="list-content"><?=$val?></span></li>
+                                <?php endforeach ?>
+                                <?php endif ?>
+                                <?php endforeach ?>
+                                <div style="margin: 20px 0;">
+                                    <p class="list-title">Nuskaičioti pinigų:</p>
+                                    <input class="form-input input-small" type="number" name="pinigai" value="<?= $pinigai?>" placeholder="Iveskite norima suma" />
+                                </div>
+                                <div class="form-error"><?=$error?></div>
+                                <div>
+                                    <button class="btn dec" href="succes-atimta.php" type="submit">Nuskaičioti</button>
+                                </div>
+                </form>
+            </div>                  
+        </div>
 
-        </form>
-    </div>
-    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
-    <a href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grizti i sarasa</a>
+        <div class="container row col-12">
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grižti į pradžia</a>
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grižti į sąrašą</a>
+        </div>
+    </section>
 </body>
 </html>

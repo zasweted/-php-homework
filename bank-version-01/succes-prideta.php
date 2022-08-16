@@ -9,8 +9,16 @@
     <title>Document</title>
 </head>
 <body>
-<?php include 'header.php' ?>
-    <h1>Pinigai sekmingai prideti!!</h1>
-    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grizti i sarasa</a>
+    <section>
+        <?php include 'header.php' ?>
+    </section>
+    <section class="container col-12 row">
+        <div class="container form">
+            <h1>Pinigai sekmingai prideti!!</h1>
+        </div>
+        <div class="container row col-12">
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grižti į sąrašą</a>
+        </div>
+    </section>
 </body>
 </html>
