@@ -3,12 +3,13 @@ $error = '';
 $dataList = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
 if(empty($dataList)){
     $error = 'Vartotoju sarasas tuscias';
-}else{
-    usort($dataList, function($a, $b) {
-    return $a['pavarde'] > $b['pavarde'];
-    });
-
 }
+// else{
+//     usort($dataList, function($a, $b) {
+//     return $a['pavarde'] > $b['pavarde'];
+//     });
+
+// }
 
 ?>
 <!DOCTYPE html>
@@ -20,26 +21,37 @@ if(empty($dataList)){
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
+  
 </head>
 <body>
-<?php include 'header.php' ?>
-    <div>
-        <h1>Klientu sarasas</h1>
-        <p><?=$error?></p>
-        <form method="get">
-            <?php foreach($dataList as $index => $val): ?>
-                
-                <?php foreach($val as $i => $a): ?>
-                    <li><?= $i. ': '.$a?></li>
-                    <?php endforeach ?>
-                    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/succes-istrinta.php?index=<?= $index ?>">Istrinti</a>
-                    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/prideti.php?index=<?= $index ?>" >Prideti liesu</a>
-                    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/atimti.php?index=<?= $index ?>">Atimti liesu</a>
-                    <?php endforeach ?>
-                </form>
+    <section>
+        <?php include 'header.php' ?>
+    </section>
+    <section class="container col-12 row">
+            <div class="container form">
+                <h1 class="title">Klientų sąrašas :</h1>
+                <p><?=$error?></p>
+                <?php foreach($dataList as $index => $val): ?>
+                        <form method="get" >
+                            <div class="inner-form">
+                                <?php foreach($val as $i => $a): ?>
+                                    <li><span class="list-title"><?= $i?> : </span><span class="list-content"><?=$a?></span></li>
+                                    <?php endforeach ?>
+                                    <div class="btn-inner">
+                                        <a class="btn del" href="http://localhost/-php-homework-/-php-homework/bank-version-01/succes-istrinta.php?index=<?= $index ?>">Ištrinti vartuotoja</a>
+                                        <a class="btn add" href="http://localhost/-php-homework-/-php-homework/bank-version-01/prideti.php?index=<?= $index ?>" >Prideti liešas</a>
+                                        <a class="btn dec" href="http://localhost/-php-homework-/-php-homework/bank-version-01/atimti.php?index=<?= $index ?>">Atimti liešas</a>
+                                    </div>
+                                </div>
+                                </form>
+                                <?php endforeach ?>
         
-    </div>
-    <a class="btnnew" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grizti i pradzia</a>
+                
+            </div>
+            <div class="container col-12 row">
+                <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grižti į pradžia</a>
+            </div>
+    </section>
 </body>
 </html>
 

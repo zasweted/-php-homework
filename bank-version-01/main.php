@@ -36,16 +36,11 @@ if(isset($_POST['vardas'])) {
         $errors['asmensKodas'] = 'Reikia ivesti asmens koda';
     }else{
         $str = $_POST['asmensKodas'];
-        $re = '/^[0-9][0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])[0-9]{4}$/';
+        $re = '/^[3-6][0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])[0-9]{4}$/';
         
         
         preg_match($re, $str, $matches, PREG_OFFSET_CAPTURE, false);
 
-        // Print the entire match result
-        var_dump($str) ; 
-        echo '<br>';
-        var_dump($matches);
-        echo '<br>';
         if($matches == false){
             $errors['asmensKodas'] = 'Asmens kodas netaisingas';
         }else{
@@ -59,7 +54,7 @@ if(isset($_POST['vardas'])) {
     }
 
     if(array_filter($errors)) {
-        $formError =  'Yra klaidu formoje';
+        $formError =  'Forma Neužpildita';
     }else {
         $userPost = $_POST ?? 'ERROR';
 
@@ -75,8 +70,7 @@ if(isset($_POST['vardas'])) {
 
 
 }
-/*pirmas skaičius nurodo lytį ir, jei neklystu, amžių: 4 ir 3 - tai dvidešimtajame amžiuje gimę žmonės. 5 ir 6 - dvidešimtpirmajame. Programa neturėtų leisti pirmoje vietoje rašyti didesnių skaičių už 6. Antras ir trečias skaičiai gali būti bet kokie, kadangi jie nurodo metus. Ketvirtas ir penktas skaičiai turi būti ne didesni už 12, kadangi tai mėnesiai. Šeštas ir septintas skaičiai negali būti didesni už 31, nes tai didžiausias galimas dienų skaičius mėnesyje. Keturi paskutiniai skaičiai gali būti bet kokie. Programuojant reikia visa tai įvertinti. Kitokių asmens kodo tikrinimo programų nelabai įsivaizduoju. Tiesa, dar reikėtų įvertinti tai, kad mėnesis ir diena negali būti 00.
- */
+
 
 
 function iBAN(){
@@ -102,26 +96,38 @@ function iBAN(){
     <title>Document</title>
 </head>
 <body>
-    <?php include 'header.php' ?>
-    <div class="container row col-6 pos">
-        <h1 class="title">Naujos banko saskaitos atidarimas</h1>
-        <fieldset>
-            <form class="form" action="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php" method="post">
-                <input type="text" name="vardas" value="<?= $vardas?>"  placeholder="Vardas" />
-                <div style="color: red;"><?= $errors['vardas'] ?></div>
-                <input type="text" name="pavarde" value="<?= $pavarde ?>" placeholder="Pavarde" />
-                <div style="color: red;"><?= $errors['pavarde'] ?></div>
-                <input type="text" name="asmensKodas" value="<?= $asmensKodas ?>" placeholder="Asmens Kodas" />
-                <div style="color: red;"><?= $errors['asmensKodas'] ?></div>
-                <input type="number" name="pinigai" value="0" hidden />
-                <input type="text" name="iban" value="<?= iBAN() ?>"   readonly />
-                <button class="btn" type="submit" >Sukurti</button>
-                <div style="color: red;"><?= $formError ?></div>
-            </form>
-        </fieldset>
-    </div>
+    <section>
+        <?php include 'header.php' ?>
+    </section>
+    <section class="container col-12 row">
+        <div class="container form">
+            <h1 class="title">Naujos banko saskaitos atidarimas :</h1>
+                <form   action="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php" method="post">
+                    <div class="form">
+                        <input class="form-input" type="text" name="vardas" value="<?= $vardas?>"  placeholder="Vardas" />
+                        <input class="form-input" type="text" name="pavarde" value="<?= $pavarde ?>" placeholder="Pavarde" />
+                        <input class="form-input" type="text" name="asmensKodas" value="<?= $asmensKodas ?>" placeholder="Asmens Kodas" />
+                        <input type="number" name="pinigai" value="0" hidden />
+                        <input type="text" name="iban" hidden value="<?= iBAN() ?>"   readonly />
+                    </div>
+                    <div class="error-container">
+                        <div class="form-error"><?= $errors['vardas'] ?></div>
+                        <div class="form-error"><?= $errors['pavarde'] ?></div>
+                        <div class="form-error"><?= $errors['asmensKodas'] ?></div>
+                        <div class="form-error"><?= $formError ?></div>
+                    </div>
+                    <div class="form">
+                        <button class="btn back submit" type="submit" >Sukurti</button>
+                    </div>
+                </form>
+        </div>
+        <div class="container row col-12">
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Klientų sąrašas</a>
+        </div>
+    </section>
 
 
-    <a class="btn" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Perziureti Sarasa</a>
+    
+    
 </body>
 </html>
