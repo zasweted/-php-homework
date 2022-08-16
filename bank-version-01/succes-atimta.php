@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-<section>
+    <section>
         <?php include 'header.php' ?>
     </section>
     <section class="container col-12 row">
