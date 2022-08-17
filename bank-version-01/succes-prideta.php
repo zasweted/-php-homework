@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <section>
         <?php include 'header.php' ?>
@@ -17,8 +19,10 @@
             <h1>Pinigai sekmingai prideti!!</h1>
         </div>
         <div class="container row col-12">
-            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grižti į sąrašą</a>
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grižti į
+                sąrašą</a>
         </div>
     </section>
 </body>
+
 </html>

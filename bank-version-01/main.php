@@ -87,6 +87,7 @@ function iBAN(){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -95,6 +96,7 @@ function iBAN(){
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <section>
         <?php include 'header.php' ?>
@@ -102,32 +104,36 @@ function iBAN(){
     <section class="container col-12 row">
         <div class="container form">
             <h1 class="title">Naujos banko saskaitos atidarimas :</h1>
-                <form   action="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php" method="post">
-                    <div class="form">
-                        <input class="form-input" type="text" name="vardas" value="<?= $vardas?>"  placeholder="Vardas" />
-                        <input class="form-input" type="text" name="pavarde" value="<?= $pavarde ?>" placeholder="Pavarde" />
-                        <input class="form-input" type="text" name="asmensKodas" value="<?= $asmensKodas ?>" placeholder="Asmens Kodas" />
-                        <input type="number" name="pinigai" value="0" hidden />
-                        <input type="text" name="iban" hidden value="<?= iBAN() ?>"   readonly />
-                    </div>
-                    <div class="error-container">
-                        <div class="form-error"><?= $errors['vardas'] ?></div>
-                        <div class="form-error"><?= $errors['pavarde'] ?></div>
-                        <div class="form-error"><?= $errors['asmensKodas'] ?></div>
-                        <div class="form-error"><?= $formError ?></div>
-                    </div>
-                    <div class="form">
-                        <button class="btn back submit" type="submit" >Sukurti</button>
-                    </div>
-                </form>
+            <form action="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php" method="post">
+                <div class="form">
+                    <input class="form-input" type="text" name="vardas" value="<?= $vardas?>" placeholder="Vardas" />
+                    <input class="form-input" type="text" name="pavarde" value="<?= $pavarde ?>"
+                        placeholder="Pavarde" />
+                    <input class="form-input" type="text" name="asmensKodas" value="<?= $asmensKodas ?>"
+                        placeholder="Asmens Kodas" />
+                    <input type="number" name="pinigai" value="0" hidden />
+                    <input type="text" name="iban" hidden value="<?= iBAN() ?>" readonly />
+                </div>
+                <div class="error-container">
+                    <div class="form-error"><?= $errors['vardas'] ?></div>
+                    <div class="form-error"><?= $errors['pavarde'] ?></div>
+                    <div class="form-error"><?= $errors['asmensKodas'] ?></div>
+                    <div class="form-error"><?= $formError ?></div>
+                </div>
+                <div class="form">
+                    <button class="btn back submit" type="submit">Sukurti</button>
+                </div>
+            </form>
         </div>
         <div class="container row col-12">
-            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Klientų sąrašas</a>
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Klientų
+                sąrašas</a>
         </div>
     </section>
 
 
-    
-    
+
+
 </body>
+
 </html>

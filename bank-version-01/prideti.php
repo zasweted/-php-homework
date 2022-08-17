@@ -22,6 +22,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +31,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <section>
         <?php include 'header.php' ?>
@@ -40,28 +42,32 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
             <div>
                 <form action="" method="post">
                     <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a) : ?>
-                        <?php if($i == $index) :?>
-                            <?php foreach($a as $i => $val) : ?>
-                                <li><span class="list-title"><?= $i?> : </span><span class="list-content"><?=$val?></span></li>
-                                <?php endforeach ?>
-                                <?php endif ?>
-                                <?php endforeach ?>
-                                <div style="margin: 20px 0;">
-                                    <p class="list-title">Prideti pinigu:</p>
-                                    <input class="form-input input-small" type="number" name="amount" placeholder="Iveskite norima suma" />
-                                </div>
-                                <div>
-                                    <button class="btn add" href="succes-prideta.php" type="submit">Prideti</button>
-                                </div>
+                    <?php if($i == $index) :?>
+                    <?php foreach($a as $i => $val) : ?>
+                    <li><span class="list-title"><?= $i?> : </span><span class="list-content"><?=$val?></span></li>
+                    <?php endforeach ?>
+                    <?php endif ?>
+                    <?php endforeach ?>
+                    <div style="margin: 20px 0;">
+                        <p class="list-title">Prideti pinigu:</p>
+                        <input class="form-input input-small" type="number" name="amount"
+                            placeholder="Iveskite norima suma" />
+                    </div>
+                    <div>
+                        <button class="btn add" href="succes-prideta.php" type="submit">Prideti</button>
+                    </div>
                 </form>
-            </div>                  
+            </div>
         </div>
 
         <div class="container row col-12">
-            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grižti į pradžia</a>
-            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grižti į sąrašą</a>
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/main.php">Grižti į
+                pradžia</a>
+            <a class="btn back" href="http://localhost/-php-homework-/-php-homework/bank-version-01/list.php">Grižti į
+                sąrašą</a>
         </div>
     </section>
-    
+
 </body>
+
 </html>

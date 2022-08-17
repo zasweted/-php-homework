@@ -1,4 +1,3 @@
-
 <header class="container container-padding row col-12">
     <div class="header">
         <img class="logo" src="./assets/img/logo.png" alt="logo">
