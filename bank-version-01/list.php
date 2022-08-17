@@ -1,15 +1,18 @@
 <?php
 $error = '';
 $dataList = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+
+usort($dataList, function($a, $b){return ($a['pavarde'] < $b['pavarde']) ? -1 : 1;});
+
+$data = $dataList;
+
+file_put_contents(__DIR__ . '/data.json', json_encode($data));
+
+
 if(empty($dataList)){
     $error = 'Vartotoju sarasas tuscias';
 }
-// else{
-//     usort($dataList, function($a, $b) {
-//     return $a['pavarde'] > $b['pavarde'];
-//     });
 
-// }
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +36,7 @@ if(empty($dataList)){
         <div class="container form">
             <h1 class="title">Klientų sąrašas :</h1>
             <p><?=$error?></p>
-            <?php foreach($dataList as $index => $val): ?>
+            <?php foreach($data as $index => $val): ?>
             <form method="get">
                 <div class="inner-form">
                     <?php foreach($val as $i => $a): ?>

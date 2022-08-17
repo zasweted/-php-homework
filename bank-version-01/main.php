@@ -59,7 +59,7 @@ if(isset($_POST['vardas'])) {
         $userPost = $_POST ?? 'ERROR';
 
         $data = json_decode(file_get_contents(__DIR__ . '/data.json'));
-        
+                
         $data[] = $userPost;
         
         file_put_contents(__DIR__ . '/data.json', json_encode($data));
