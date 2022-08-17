@@ -12,7 +12,6 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
         }
     }
     file_put_contents(__DIR__ . '/data.json', json_encode($data));
-    print_r($cashOperation);
 
     header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-prideta.php');
     die;
