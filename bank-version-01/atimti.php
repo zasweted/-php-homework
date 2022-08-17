@@ -1,32 +1,38 @@
 <?php
 
 if(isset($_GET)){
-    $index = implode($_GET);
+    $index = $_GET['index'];
 }
 $error = '';
 $pinigai = '';
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-    $cashOperation = $_POST ?? $data[$i]['pinigai'];
+    $cashOperation = $_POST['pinigai'];
+    print_r($cashOperation);
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
         if($index == $i){
-            $num = intval(implode($cashOperation));
+            $num = intval($cashOperation);
             $likutis = $data[$i]['pinigai'] - $num;
             if($likutis < 0){
                 $error = 'Galutinis likutis maziau uz 0 <br> Iveskit kita suma';
                 $pinigai = $_POST['pinigai'];
             }else{
-                $data[$i]['pinigai'] -= $num;
-                file_put_contents(__DIR__ . '/data.json', json_encode($data));
-                header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-atimta.php');
-                die;
+                if(empty($cashOperation)){
+                    $error = 'Ivesties laukas tuscias';
+                }else{
+                    $data[$i]['pinigai'] -= $num;
+                    file_put_contents(__DIR__ . '/data.json', json_encode($data));
+                    header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-atimta.php');
+                    die;
+                }
             }
         }
     }
     
 
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
