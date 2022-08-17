@@ -1,14 +1,13 @@
 <?php
 if(isset($_GET)){
-    $index = implode($_GET);
+    $index = $_GET['index'];
 }
 if('POST' == $_SERVER['REQUEST_METHOD']) {
-    $cashOperation = $_POST ?? $data[$i]['pinigai'];
-
+    $cashOperation = $_POST['amount'];
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
         if($index == $i){
-            $data[$i]['pinigai'] += implode($cashOperation);
+            $data[$i]['pinigai'] += $cashOperation;
         }
     }
     file_put_contents(__DIR__ . '/data.json', json_encode($data));
