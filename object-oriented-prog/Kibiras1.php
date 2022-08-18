@@ -2,7 +2,7 @@
 echo '<pre>';
 class Kibiras1{
 
-    public $akmenuKiekis;
+    private $akmenuKiekis;
 
     public function __construct($kiekis = '0'){
         $this->akmenuKiekis = $kiekis;
