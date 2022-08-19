@@ -16,7 +16,7 @@ if(isset($_POST['vardas'])) {
         $errors['vardas'] = 'Reikia ivesti varda';
     } else {
         $vardas = $_POST['vardas'];
-    if(strlen($vardas) < 3 || $vardas == strtolower($vardas)){
+    if(strlen($vardas) < 3 || $vardas == strtolower($vardas) || preg_match('/[0-9]/', $vardas) == 1){
         $errors['vardas'] = 'Vardas negali buti is mazos raides arba trumpesnis uz 3 simbolius';
         }
     }
@@ -26,7 +26,7 @@ if(isset($_POST['vardas'])) {
         $errors['pavarde'] = 'Reikia ivesti pavarde';
     }else{
         $pavarde = $_POST['pavarde'];
-    if(strlen($pavarde) < 3 || $pavarde == strtolower($pavarde)){
+    if(strlen($pavarde) < 3 || $pavarde == strtolower($pavarde) || preg_match('/[0-9]/', $pavarde) == 1){
             $errors['pavarde'] = 'Pavarde negali buti is mazos raides arba trumpesne uz 3 simbolius';
         }
     }
@@ -35,13 +35,8 @@ if(isset($_POST['vardas'])) {
     if(empty($_POST['asmensKodas'])){
         $errors['asmensKodas'] = 'Reikia ivesti asmens koda';
     }else{
-        $str = $_POST['asmensKodas'];
-        $re = '/^[3-6][0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])[0-9]{4}$/';
         
-        
-        preg_match($re, $str, $matches, PREG_OFFSET_CAPTURE, false);
-
-        if($matches == false){
+        if(preg_match('/^[3-6][0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])[0-9]{4}$/', $_POST['asmensKodas']) == 0){
             $errors['asmensKodas'] = 'Asmens kodas netaisingas';
         }else{
             foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
