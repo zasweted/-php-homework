@@ -1,18 +1,21 @@
 <?php
-$result = '';
 if(isset($_GET)){
     $index = $_GET['index'];
 }
 
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+    $result = '';
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
-        if($i == $index && $a['pinigai'] == 0){
-            unset($data[$i]);
-            file_put_contents(__DIR__ . '/data.json', json_encode($data));            
-            $result = $a['vardas'] . "\r" . $a['pavarde'] ."\r" . 'Sekmingai istrintas';
-        }else{
-            $result = 'Nepaviko istrinti vartuotojo, saskaitoje yra pinigu likutis';
+        if($index == $i){
+            if($a['pinigai'] == 0){
+                unset($data[$i]);
+                file_put_contents(__DIR__ . '/data.json', json_encode($data));            
+                $result = $a['vardas'] . "\r" . $a['pavarde'] ."\r" . 'Sekmingai istrintas';
+            }else{
+                $result = 'Nepaviko istrinti vartuotojo, saskaitoje yra pinigu likutis';
+
+            }
             
         }
     }
