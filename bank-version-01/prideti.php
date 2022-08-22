@@ -5,21 +5,26 @@ if(isset($_GET)){
 $error = '';
 if('POST' == $_SERVER['REQUEST_METHOD']) {
     $cashOperation = $_POST['amount'];
-    $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
-    foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
-        if($index == $i){
-            if(empty($cashOperation)){
-                $error = 'Ivesties laukas tuscias';
-        }else{
-            $data[$i]['pinigai'] += $cashOperation;
-            file_put_contents(__DIR__ . '/data.json', json_encode($data));
-        
-            header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-prideta.php');
-            die;
+    if($cashOperation < 0) {
+        $error = 'Ivesta suma  negali buti mažesne už 0';
+    }else{
+        $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
+        foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
+            if($index == $i){
+                if(empty($cashOperation)){
+                    $error = 'Ivesties laukas tuscias';
+            }else{
+                $data[$i]['pinigai'] += $cashOperation;// if cashoperations less than 0, stop
+                file_put_contents(__DIR__ . '/data.json', json_encode($data));
             
+                header('Location: http://localhost/-php-homework-/-php-homework/bank-version-01/succes-prideta.php');
+                die;
+                
+            }
         }
     }
-}
+
+    }
 }
 
 ?>
