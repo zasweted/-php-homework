@@ -1,5 +1,5 @@
 <?php
-class Kibiras1{
+class Kibiras3{
 
     protected $akmenuKiekis;
 
@@ -27,4 +27,3 @@ class Kibiras1{
 
 
 }
-
