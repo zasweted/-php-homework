@@ -86,23 +86,27 @@ print_r($superKibirasNePo1);
 
 ?><h1 style="color: red;">5 Uzduotis </h1><?php
 
-$_200stikline = new Stikline(200);
-$_150stikline = new Stikline(150);
-$_100stikline = new Stikline(100);
+$s200 = new Stikline(200);
+$s150 = new Stikline(150);
+$s100 = new Stikline(100);
 
-$_200stikline->ipilti(150);
-$_200stikline->likutis();
-print_r($_200stikline);
+
+$s200->ipilti(1000);
+
+$s150->ipilti($s200->ipilti(1000)->ispilti());
+
+$s100->ipilti($s150->ipilti($s200->ipilti(1000)->ispilti())->ispilti());
+var_dump($s200);
+var_dump($s150);
+var_dump($s100);
 
 ?><h1 style="color: red;">6 Uzduotis </h1><?php
 
-$_grybas1 = new Grybas;
-$_grybautojas1 = new Krepsys;
-print_r($_grybas1);
-$_grybautojas1->detiIKrepsi($_grybas1);
+$k = new Krepsys;
 
-$_grybautojas1->atsakymas();
-print_r($_grybautojas1);
+while($k->deti(new Grybas)){}
+
+var_dump($k);
 
 
 

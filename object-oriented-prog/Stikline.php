@@ -2,30 +2,27 @@
 
 class Stikline {
 
-    private $turis;
-    private $kiekis;
-    private $likutis;
+    private $turis, $kiekis;
 
     public function __construct(int $turis)
     {
-        $this->turis = $turis;
         $this->kiekis = 0;
+        $this->turis = $turis;
     }
 
-    public function likutis()
+    public function ipilti(int $kiekis) : self
     {
-        return $this->likutis;
+        $this->kiekis = min($this->turis, $this->kiekis + $kiekis);
+        return $this;
     }
 
-    public function ipilti(int $amount)
+    public function ispilti() : int
     {
-        $this->kiekis += $amount;
-        $this->likutis = $this->kiekis - $amount;
+        $buvo = $this->kiekis;
+        $this->kiekis = 0;
+        return $buvo;
     }
 
-    public function kiekPripiltaIStikline() : int
-    {
-        return $this->kiekis;
-    }
+
 
 }

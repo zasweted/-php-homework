@@ -3,7 +3,7 @@ class Pinigine{
     private $popieriniaiPinigai;
     private $metaliniaiPinigai;
 
-    public function __construct($startingMoney = '0'){
+    public function __construct(){
         $this->popieriniaiPinigai = 0;
         $this->metaliniaiPinigai = 0;
     }
