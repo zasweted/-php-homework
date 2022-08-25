@@ -1,0 +1,16 @@
+{
+    "name": "zaswe/bank-version-02",
+    "description": "Bank-version-02",
+    "autoload": {
+        "psr-4": {
+            "Zaswe\\BankVersion02\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aleksandr Vasiljev",
+            "email": "zaswet@gmail.com"
+        }
+    ],
+    "require": {}
+}
