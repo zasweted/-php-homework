@@ -7,6 +7,7 @@ class Router {
     private $handlers = [];
     private const METHOD_POST = 'POST';
     private const METHOD_GET = 'GET';
+    private const INSTALL = '/php-homework/bank-version-02/public';
 
     public function get( $path, $handler) : void
     {
@@ -29,10 +30,12 @@ class Router {
 
     public function run()
     {
+        echo '<pre>';
         $requestUri = parse_url($_SERVER['REQUEST_URI']);
         $requestPath = $requestUri['path'];
+        $requestPath = str_replace(self::INSTALL, '', $requestPath);
         $method = $_SERVER['REQUEST_METHOD'];
-        var_dump($requestUri);
+        
         var_dump($requestPath);
 
         $callback = null;
