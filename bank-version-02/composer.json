@@ -3,7 +3,7 @@
     "description": "Bank-version-02",
     "autoload": {
         "psr-4": {
-            "Zaswe\\BankVersion02\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
