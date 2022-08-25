@@ -5,9 +5,10 @@ namespace App;
 class Router {
 
     private $handlers = [];
+    private $notFoundHandler;
     private const METHOD_POST = 'POST';
     private const METHOD_GET = 'GET';
-    private const INSTALL = '/php-homework/bank-version-02/public';
+    private const INSTALL = '/php-homework/bank-version-02/public/';
 
     public function get( $path, $handler) : void
     {
@@ -17,6 +18,11 @@ class Router {
     public function post(string $path, $handler) : void
     {
         $this->addHandler(self::METHOD_POST, $path, $handler);
+    }
+
+    public function addNotFoundHandler($handler) : void
+    {
+        $this->notFoundHandler = $handler;
     }
 
     private function addHandler(string $method, string $path, $handler) : void
@@ -30,13 +36,12 @@ class Router {
 
     public function run()
     {
-        echo '<pre>';
+
         $requestUri = parse_url($_SERVER['REQUEST_URI']);
         $requestPath = $requestUri['path'];
         $requestPath = str_replace(self::INSTALL, '', $requestPath);
+
         $method = $_SERVER['REQUEST_METHOD'];
-        
-        var_dump($requestPath);
 
         $callback = null;
 
@@ -44,6 +49,14 @@ class Router {
             if($handler['path'] === $requestPath && $method === $handler['method']) {
                 $callback = $handler['handler'];
             }
+        }
+
+        if(!$callback){
+            header('HTTP/1.0 404 Not Found');
+            if(!empty($this->notFoundHandler)) {
+                $callback = $this->notFoundHandler;
+            }
+            
         }
 
         call_user_func_array($callback, [array_merge($_GET, $_POST)]);
