@@ -9,10 +9,13 @@ $router->get('', function () {
     require __DIR__ . '/home.php';
 });
 $router->get('home', function () {
-    require __DIR__ . 'home.php';
+    require __DIR__ . '/home.php';
 });
 $router->get('login', function () {
     require __DIR__ . '/login.php';
+});
+$router->get('signup', function () {
+    require __DIR__ . '/signup.php';
 });
 $router->get('about', function () {
     echo 'About page lmao';
