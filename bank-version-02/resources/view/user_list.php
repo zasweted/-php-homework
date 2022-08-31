@@ -9,6 +9,8 @@
                 <li>Vardas: <?=$user['vardas']?></li>
                 <li>Pavarde: <?=$user['pavarde']?></li>
                 <li>Asmens Kodas: <?=$user['asmensKodas']?></li>
+                <li>Saskaitos likutis: <?=$user['pinigai']?> $</li>
+                <li>IBAN: <?=$user['iban']?></li>
             </div>
         </fieldset>
 

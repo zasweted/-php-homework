@@ -17,7 +17,8 @@ class UserController {
         Json::connect()->create([
             'vardas' => $_POST['vardas'],
             'pavarde' => $_POST['pavarde'],
-            'asmensKodas' => $_POST['asmensKodas']
+            'asmensKodas' => $_POST['asmensKodas'],
+            'pinigai' => $_POST['pinigai']
         ]);
 
         return App::redirect('');

@@ -31,15 +31,28 @@ class Json implements DataBase {
         file_put_contents(DIR . 'App/DB/data_id.json', json_encode($id));
         return $id;
     }
-
+    
+    public function iban() : string
+    {
+        $_18digits ='';
+    
+        for($i = 0; $i < 18; $i++) {
+            $_18digits .= rand(0, 9);
+        }
+        $_IBAN = 'LT'. $_18digits;
+        return $_IBAN;
+        
+    }
+    
     public function __destruct()
     {
         file_put_contents(DIR . 'App/DB/data.json', json_encode($this->data));
     }
-
+    
     public function create(array $userData) : void
     {
         $userData['id'] = $this->getId();
+        $userData['iban'] = $this->iban();
         $this->data[] = $userData;
 
     }
@@ -74,6 +87,7 @@ class Json implements DataBase {
             }
         }
     }
+
 
     public function showAll() : array
     {
