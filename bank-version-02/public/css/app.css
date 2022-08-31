@@ -58,6 +58,10 @@ body {
 }
 
 .btn-green {
+  background-color: green;
+}
+
+.btn-red {
   background-color: red;
 }
 
@@ -87,4 +91,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.list-title {
+  font-size: 20px;
+  font-weight: 700;
 }
