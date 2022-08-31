@@ -20,12 +20,12 @@ class UserController {
             'asmensKodas' => $_POST['asmensKodas']
         ]);
 
-        return App::redirect('create');
+        return App::redirect('');
     }
 
     public function list()
     {
-        return App::view('user_list', ['title'=>'User List', 'animals' => Json::connect()->showAll()]); 
+        return App::view('user_list', ['title'=>'User List', 'users' => Json::connect()->showAll()]); 
     }
 
 }

@@ -4,7 +4,7 @@
 <section class="container container-row form">
     <fieldset>
         <legend>User Create Form</legend>
-        <form action="<?=URL?>create" method="post">
+        <form action="<?=URL?>store" method="post">
         Vardas: <input type="text" name="vardas">
         Pavarde: <input type="text" name="pavarde">
         Asmens Kodas: <input type="text" name="asmensKodas">
@@ -12,4 +12,5 @@
         </form>
     </fieldset>
 </section>
+
 <?php App\App::view('bottom');?>
