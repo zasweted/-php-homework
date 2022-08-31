@@ -7,3 +7,4 @@ define('URL', 'http://bank.oop/');
 require DIR . 'vendor/autoload.php';
 
 App::start();
+
