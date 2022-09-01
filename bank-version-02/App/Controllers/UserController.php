@@ -20,13 +20,37 @@ class UserController {
             'asmensKodas' => $_POST['asmensKodas'],
             'pinigai' => $_POST['pinigai']
         ]);
-
-        return App::redirect('');
+        
+        return App::redirect('list');
     }
-
+    
     public function list()
     {
         return App::view('user_list', ['title'=>'User List', 'users' => Json::connect()->showAll()]); 
     }
+
+    public function edit(int $id)
+    {
+        return App::view('user_edit', ['title' => 'User Edit', 'user' =>Json::connect()->show($id)]);
+    }
+
+    public function update(int $id)
+    {
+        Json::connect()->update($id,[
+            'vardas' => $_POST['vardas'],
+            'pavarde' => $_POST['pavarde'],
+            'asmensKodas' => $_POST['asmensKodas'],
+            'pinigai' => $_POST['pinigai']
+        ]);
+        return App::redirect('list');
+    }
+
+    public function delete(int $id)
+    {
+        Json::connect()->delete($id);
+
+        return App::redirect('list');
+    }
+
 
 }

@@ -38,6 +38,15 @@ class App {
         if($method == 'GET' && count($url) == 1 && $url[0] == 'list'){
             return((new U)->list());
         }
+        if($method == 'GET' && count($url) == 2 && $url[0] == 'edit'){
+            return((new U)->edit($url[1]));
+        }
+        if($method == 'POST' && count($url) == 2 && $url[0] == 'update'){
+            return((new U)->update($url[1]));
+        }
+        if($method == 'POST' && count($url) == 2 && $url[0] == 'delete'){
+            return((new U)->delete($url[1]));
+        }
         if($method == 'GET' && count($url) == 1 && $url[0] == 'login'){
             return((new L)->login());
         }

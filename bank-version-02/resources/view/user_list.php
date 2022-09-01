@@ -10,8 +10,10 @@
                 <li><p class="list-title">Asmens Kodas:</p>  <?=$user['asmensKodas']?></li>
                 <li><p class="list-title">Saskaitos likutis:</p>  <?=$user['pinigai']?> $</li>
                 <li><p class="list-title">IBAN:</p>  <?=$user['iban']?></li>
-                <button class="btn btn-green">Koreguoti</button>
-                <button class="btn btn-red">Istrinti</button>
+                <a href="<?=URL?>edit/<?=$user['id']?>" type="button" class="btn btn-green">Koreguoti</a>
+                <form action="<?=URL?>delete/<?=$user['id']?>" method="post">
+                    <button type="submit" class="btn btn-red">Istrinti</button>
+                </form>
             </div>
         </fieldset>
 
