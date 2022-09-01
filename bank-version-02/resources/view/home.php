@@ -1,5 +1,4 @@
 <?php App\App::view('top', ['title' => $title]); ?>
-<?php App\App::view('header'); ?>
 <section class="container container-row screen">
     <div>
         <h1>Welcome to bank!</h1>

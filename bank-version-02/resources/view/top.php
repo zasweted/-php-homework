@@ -9,4 +9,5 @@
     <title><?=$title?></title>
 </head>
 <body>
+<?php App\App::view('header');?>
     
