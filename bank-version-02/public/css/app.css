@@ -45,8 +45,8 @@ body {
 .form-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  width: 500px;
 }
 
 .btn {
@@ -82,13 +82,6 @@ body {
 /*header end*/
 .screen {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

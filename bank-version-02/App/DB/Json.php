@@ -71,9 +71,10 @@ class Json implements DataBase {
 
     public function delete(int $userId) : void
     {
+
         foreach($this->data as $index => $user){
             if($user['id'] == $userId){
-                unset($this->data['$index']);
+                unset($this->data[$index]);
                 $this->data = array_values($this->data);
                 break;
             }

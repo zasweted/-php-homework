@@ -45,7 +45,7 @@ class App {
             return((new U)->update($url[1]));
         }
         if($method == 'POST' && count($url) == 2 && $url[0] == 'delete'){
-            return((new U)->delete($url[1]));
+             return((new U)->delete((int)$url[1]));
         }
         if($method == 'GET' && count($url) == 1 && $url[0] == 'login'){
             return((new L)->login());

@@ -8,6 +8,9 @@
                 <a class="btn" href="<?=URL?>">Home</a>
                 <a class="btn" href="<?=URL?>create">Create</a>
                 <a class="btn" href="<?=URL?>list">List</a>
+                <form action="<?=URL?>logout" method="post">
+                    <button class="btn btn-red" type="submit">Logout</button>
+                </form>
             </div>
         </div>
     </header>

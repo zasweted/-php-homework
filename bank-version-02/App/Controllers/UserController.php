@@ -47,9 +47,10 @@ class UserController {
 
     public function delete(int $id)
     {
+        
         Json::connect()->delete($id);
-
-        return App::redirect('list');
+        
+     return App::redirect('list');
     }
 
 
