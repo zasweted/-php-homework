@@ -48,15 +48,18 @@ class App {
              return((new U)->delete((int)$url[1]));
         }
         if($method == 'GET' && count($url) == 1 && $url[0] == 'login'){
+            if(Auth::isLoged()){
+                return self::redirect('');
+            }
             return((new L)->login());
         }
-        if($method == 'GET' && count($url) == 1 && $url[0] == 'welcome'){
-            return((new L)->welcome());
-        }
+        // if($method == 'GET' && count($url) == 1 && $url[0] == 'welcome'){
+        //     return((new L)->welcome());
+        // }
         if($method == 'POST' && count($url) == 1 && $url[0] == 'login'){
             return((new L)->doLogin());
         }
-        if($method == 'POST' && count($url) == 1 && $url[0] == 'farewell'){
+        if($method == 'POST' && count($url) == 1 && $url[0] == 'logout'){
             return((new L)->logout());
         }
     }

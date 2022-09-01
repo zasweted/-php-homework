@@ -13,20 +13,18 @@ class LoginController {
 
         return App::view('user_login', ['title' => $title]);
     }
-    public function welcome()
-    {
-        $title = 'Welcome';
+    // public function welcome()
+    // {
+    //     $title = 'Welcome';
 
-        return App::view('welcome', ['title' => $title]);
-    }
+    //     return App::view('welcome', ['title' => $title]);
+    // }
 
     public function logout()
     {
         unset($_SESSION['login'], $_SESSION['user']);
 
-        $title = 'Farewell';
-
-        return App::view('farewell', ['title' => $title]);
+        return App::redirect('');
     }
 
     public function doLogin()
@@ -38,7 +36,7 @@ class LoginController {
                 if($user['pass'] == md5($_POST['pass'])){
                     $_SESSION['login'] =1;
                     $_SESSION['user'] = $user;
-                    return App::redirect('welcome');
+                    return App::redirect('');
                 }
             }
         }

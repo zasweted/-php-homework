@@ -12,4 +12,9 @@ class Auth {
         }
         return true;
     }
+
+    public static function isLoged() :bool
+    {
+        return (isset($_SESSION['login']) && $_SESSION['login'] == 1);
+    }
 }

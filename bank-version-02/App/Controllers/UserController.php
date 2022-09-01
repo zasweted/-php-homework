@@ -40,7 +40,8 @@ class UserController {
             'vardas' => $_POST['vardas'],
             'pavarde' => $_POST['pavarde'],
             'asmensKodas' => $_POST['asmensKodas'],
-            'pinigai' => $_POST['pinigai']
+            'pinigai' => $_POST['pinigai'],
+            'iban' => $_POST['iban']
         ]);
         return App::redirect('list');
     }
