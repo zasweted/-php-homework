@@ -23,7 +23,10 @@ class LoginController {
     public function logout()
     {
         unset($_SESSION['login'], $_SESSION['user']);
-        return App::redirect('');
+
+        $title = 'Farewell';
+
+        return App::view('farewell', ['title' => $title]);
     }
 
     public function doLogin()

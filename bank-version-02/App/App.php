@@ -56,7 +56,7 @@ class App {
         if($method == 'POST' && count($url) == 1 && $url[0] == 'login'){
             return((new L)->doLogin());
         }
-        if($method == 'POST' && count($url) == 1 && $url[0] == 'logout'){
+        if($method == 'POST' && count($url) == 1 && $url[0] == 'farewell'){
             return((new L)->logout());
         }
     }
