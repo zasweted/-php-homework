@@ -44,6 +44,9 @@ class App {
         if($method == 'POST' && count($url) == 2 && $url[0] == 'update'){
             return((new U)->update($url[1]));
         }
+        if($method == 'POST' && count($url) == 2 && $url[0] == 'updateMoney'){
+            return((new U)->updateMoney($url[1]));
+        }
         if($method == 'POST' && count($url) == 2 && $url[0] == 'delete'){
              return((new U)->delete((int)$url[1]));
         }

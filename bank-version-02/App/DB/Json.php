@@ -68,7 +68,7 @@ class Json implements DataBase {
             }
         }
     }
-
+    
     public function delete(int $userId) : void
     {
 

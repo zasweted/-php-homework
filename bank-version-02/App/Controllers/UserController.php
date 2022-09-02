@@ -45,7 +45,18 @@ class UserController {
         ]);
         return App::redirect('list');
     }
-
+    public function updateMoney(int $id)
+    {
+        Json::connect()->update($id,[
+            'vardas' => $_POST['vardas'],
+            'pavarde' => $_POST['pavarde'],
+            'asmensKodas' => $_POST['asmensKodas'],
+            'pinigai' => $_POST['pinigai'],
+            'iban' => $_POST['iban']
+        ]);
+        return App::view('user_edit', ['title' => 'User Edit', 'user' =>Json::connect()->show($id)]);
+    }
+    
     public function delete(int $id)
     {
         
