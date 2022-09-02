@@ -7,7 +7,37 @@
   \*****************************/
 /***/ (() => {
 
+/*Lightbox start*/
+var box = document.querySelector('#lightBox');
+var play = document.querySelector('#playBtn');
+var btnClose = document.querySelector('#closeBtn');
+var playStop = document.querySelector('#playStop');
 
+var closeLightbox = function closeLightbox() {
+  box.style.display = 'none';
+};
+
+var showLightbox = function showLightbox() {
+  box.style.display = 'flex';
+};
+
+btnClose.addEventListener('click', function () {
+  closeLightbox();
+});
+play.addEventListener('click', function () {
+  showLightbox();
+}); // box.addEventListener('click', () => {
+//     closeLightbox()
+// });
+
+addEventListener('keydown', function (_ref) {
+  var code = _ref.code;
+
+  if (code === 'Escape') {
+    closeLightbox();
+  }
+});
+/*Lightbox end*/
 
 /***/ }),
 

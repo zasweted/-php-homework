@@ -13,13 +13,7 @@ class LoginController {
 
         return App::view('user_login', ['title' => $title]);
     }
-    // public function welcome()
-    // {
-    //     $title = 'Welcome';
-
-    //     return App::view('welcome', ['title' => $title]);
-    // }
-
+    
     public function logout()
     {
         unset($_SESSION['login'], $_SESSION['user']);

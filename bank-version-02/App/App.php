@@ -53,9 +53,6 @@ class App {
             }
             return((new L)->login());
         }
-        // if($method == 'GET' && count($url) == 1 && $url[0] == 'welcome'){
-        //     return((new L)->welcome());
-        // }
         if($method == 'POST' && count($url) == 1 && $url[0] == 'login'){
             return((new L)->doLogin());
         }
