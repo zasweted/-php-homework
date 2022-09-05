@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\App;
 use App\DB\Json;
+use App\Middlewares\UserValidator as V;
 
 class UserController {
 
@@ -17,19 +18,27 @@ class UserController {
     }
     
 
-    // public function store()
-    // {
+    public function store()
+    {
         
-    //         // Json::connect()->create([
-    //         //     'vardas' => $_POST['vardas'],
-    //         //     'pavarde' => $_POST['pavarde'],
-    //         //     'asmensKodas' => $_POST['asmensKodas'],
-    //         //     'pinigai' => $_POST['pinigai']
-    //         // ]);
-    //         // return App::redirect('list');
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $validation = new V($_POST);
+            $errors = $validation->validateForm();
+            if(!empty($errors)) {
+                App::view('user_create', ['title'=>'User Create', 'errors' => $errors]);
+            }else {
+                Json::connect()->create([
+                                'vardas' => $_POST['vardas'],
+                                'pavarde' => $_POST['pavarde'],
+                                'asmensKodas' => $_POST['asmensKodas'],
+                                'pinigai' => $_POST['pinigai']
+                            ]);
+                            return App::redirect('list');
+            }
+        }
         
 
-    // }
+    }
     
     public function list()
     {

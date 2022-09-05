@@ -1,35 +1,4 @@
-<?php
-use App\Middlewares\UserValidator as V;
-use App\DB\Json;
-use App\App;
-
- //print_r($_SERVER['REQUEST_METHOD']);
- print_r(isset($_POST));
-
-
-if($_SERVER['REQUEST_METHOD']=='POST'){
-    echo('ffsdds');
-    $validation = new V($_POST);
-    $errors = $validation->validateForm();
-    if(!empty($errors)) {
-        $formError =  'Forma Neužpildita';
-    }else {
-        Json::connect()->create([
-                        'vardas' => $_POST['vardas'],
-                        'pavarde' => $_POST['pavarde'],
-                        'asmensKodas' => $_POST['asmensKodas'],
-                        'pinigai' => $_POST['pinigai']
-                    ]);
-                    return App::redirect('list');
-    }
-}
-
-
-
-
-
-
-App::view('top', ['title'=>$title]);?>
+<?php App\App::view('top', ['title'=>$title]);?>
 
 <section class="container container-row form">
     <fieldset>
@@ -53,4 +22,4 @@ App::view('top', ['title'=>$title]);?>
     </fieldset>
 </section>
 
-<?php App::view('bottom');?>
+<?php App\App::view('bottom');?>
