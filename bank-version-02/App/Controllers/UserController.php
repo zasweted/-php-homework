@@ -17,11 +17,10 @@ class UserController {
         ]);
     }
     
-
     public function store()
     {
         
-        if($_SERVER['REQUEST_METHOD']=='POST'){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $validation = new V($_POST);
             $errors = $validation->validateForm();
             if(!empty($errors)) {
@@ -39,6 +38,15 @@ class UserController {
         
 
     }
+
+    // public function addMoney()
+    // {
+    //     print_r($_POST);
+    //     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    //         $money = $_POST['pinigai'];
+    //         $startingMoney = 
+    //     }
+    // }
     
     public function list()
     {

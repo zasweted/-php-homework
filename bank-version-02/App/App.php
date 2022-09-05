@@ -31,14 +31,12 @@ class App {
             return((new H)->home());
         }
         if($method == 'GET' && count($url) == 1 && $url[0] == 'create'){
-            echo('GETTT ');
             return((new U)->create());
         }
         if($method == 'POST' && count($url) == 1 && $url[0] == 'store'){
             return((new U)->store());
         }
         if($method == 'POST' && count($url) == 1 && $url[0] == 'create'){
-            echo('POST ');
             return((new U)->create());
         }
         if($method == 'GET' && count($url) == 1 && $url[0] == 'list'){

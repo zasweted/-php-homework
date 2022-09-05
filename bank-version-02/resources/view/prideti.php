@@ -1,9 +1,4 @@
-<?php 
-print_r($user['id']);
-
-
-
-App\App::view('top', ['title'=>$title]);?>
+<?php App\App::view('top', ['title'=>$title]);?>
 
 <section class="container container-row form">
     <fieldset>
