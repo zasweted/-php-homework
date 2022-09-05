@@ -6,7 +6,7 @@ use App\DB\Json;
 class UserValidator {
 
     private $data;
-    private $errors =[];
+    private $errors = [];
     private static $fields = ['vardas', 'pavarde', 'asmensKodas', 'pinigai'];
     
     public function __construct(array $postData)
@@ -77,6 +77,5 @@ class UserValidator {
     private function addError(string $key, string $val)
     {
         $this->errors[$key] = $val;
-        print_r($this->errors);
     }
 }
