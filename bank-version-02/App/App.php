@@ -5,6 +5,7 @@ namespace App;
 use App\Controllers\HomeController as H;
 use App\Controllers\UserController as U;
 use App\Controllers\LoginController as L;
+use App\Middlewares\UserValidator as V;
 use App\Middlewares\Auth;
 
 class App {
@@ -32,20 +33,23 @@ class App {
         if($method == 'GET' && count($url) == 1 && $url[0] == 'create'){
             return((new U)->create());
         }
-        if($method == 'POST' && count($url) == 1 && $url[0] == 'store'){
-            return((new U)->store());
+        // if($method == 'POST' && count($url) == 1 && $url[0] == 'store'){
+        //     return((new U)->store());
+        // }
+        if($method == 'POST' && count($url) == 1 && $url[0] == 'create'){
+            return((new U)->create());
         }
         if($method == 'GET' && count($url) == 1 && $url[0] == 'list'){
             return((new U)->list());
         }
-        if($method == 'GET' && count($url) == 2 && $url[0] == 'edit'){
-            return((new U)->edit($url[1]));
+        if($method == 'GET' && count($url) == 2 && $url[0] == 'prideti'){
+            return((new U)->edit($url[0], (int)$url[1]));
+        }
+        if($method == 'GET' && count($url) == 2 && $url[0] == 'atimti'){
+            return((new U)->edit($url[0], (int)$url[1]));
         }
         if($method == 'POST' && count($url) == 2 && $url[0] == 'update'){
             return((new U)->update($url[1]));
-        }
-        if($method == 'POST' && count($url) == 2 && $url[0] == 'updateMoney'){
-            return((new U)->updateMoney($url[1]));
         }
         if($method == 'POST' && count($url) == 2 && $url[0] == 'delete'){
              return((new U)->delete((int)$url[1]));

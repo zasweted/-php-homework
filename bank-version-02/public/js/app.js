@@ -7,37 +7,38 @@
   \*****************************/
 /***/ (() => {
 
-/*Lightbox start*/
-var box = document.querySelector('#lightBox');
-var play = document.querySelector('#playBtn');
-var btnClose = document.querySelector('#closeBtn');
-var playStop = document.querySelector('#playStop');
-
-var closeLightbox = function closeLightbox() {
-  box.style.display = 'none';
-};
-
-var showLightbox = function showLightbox() {
-  box.style.display = 'flex';
-};
-
-btnClose.addEventListener('click', function () {
-  closeLightbox();
-});
-play.addEventListener('click', function () {
-  showLightbox();
-}); // box.addEventListener('click', () => {
+// /*Lightbox start*/
+// const box = document.querySelector('#lightBox');
+// const play = document.querySelectorAll('#playBtn');
+// console.log(play);
+// const btnClose = document.querySelector('#closeBtn');
+// const playStop = document.querySelector('#playStop');
+// const closeLightbox = () => {
+//     box.style.display = 'none'
+// };
+// const showLightbox = () => {
+//     box.style.display = 'flex'
+// };
+// btnClose.addEventListener('click', () => {
 //     closeLightbox()
 // });
-
-addEventListener('keydown', function (_ref) {
-  var code = _ref.code;
-
-  if (code === 'Escape') {
-    closeLightbox();
-  }
-});
-/*Lightbox end*/
+// for(i = 0; i < play.length; i++){
+//     play[i].addEventListener('click', () => {
+//         showLightbox();
+//     });
+// }
+// // play.addEventListener('click', () => {
+// //     showLightbox();
+// // }
+// // box.addEventListener('click', () => {
+// //     closeLightbox()
+// // });
+// addEventListener('keydown', ({code}) => {
+//     if (code === 'Escape') {
+//         closeLightbox();
+//     }
+// });
+// /*Lightbox end*/
 
 /***/ }),
 

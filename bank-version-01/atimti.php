@@ -7,7 +7,7 @@ $error = '';
 $pinigai = '';
 if('POST' == $_SERVER['REQUEST_METHOD']) {
     $cashOperation = $_POST['pinigai'];
-    print_r($cashOperation);
+    
 
     $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
     foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $i => $a){
