@@ -36,6 +36,12 @@ class App {
         if($method == 'POST' && count($url) == 1 && $url[0] == 'store'){
             return((new U)->store());
         }
+        if($method == 'POST' && count($url) == 2 && $url[0] == 'addMoney'){
+            return((new U)->addMoney((int)$url[1]));
+        }
+        if($method == 'POST' && count($url) == 2 && $url[0] == 'removeMoney'){
+            return((new U)->removeMoney((int)$url[1]));
+        }
         if($method == 'POST' && count($url) == 1 && $url[0] == 'create'){
             return((new U)->create());
         }

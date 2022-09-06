@@ -3,7 +3,7 @@
 <section class="container container-row form">
     <fieldset>
         <legend><h1>Prideti</h1></legend>
-        <form action="<?=URL?>update/<?=$user['id']?>" method="post">
+        <form action="<?=URL?>addMoney/<?=$user['id']?>" method="post">
             <h2>Vardas: </h2> <input class="input-bordless" type="text" name="vardas" value="<?=$user['vardas']?>" readonly>
             <h2>Pavarde: </h2> <input class="input-bordless" type="text" name="pavarde" value="<?=$user['pavarde']?>" readonly>
             <h2>Asmens Kodas: </h2> <input class="input-bordless" type="text" name="asmensKodas" value="<?=$user['asmensKodas']?>" readonly>
@@ -12,6 +12,7 @@
             <input type="text" name="pinigai">  
             <button class="btn" type="submit">Prideti</button>
         </form>
+        <div class="errors"><?=$errors['add'] ?? '' ?></div>
     </fieldset>
 </section>
 <?php App\App::view('bottom');?>

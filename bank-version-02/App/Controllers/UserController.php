@@ -39,14 +39,66 @@ class UserController {
 
     }
 
-    // public function addMoney()
-    // {
-    //     print_r($_POST);
-    //     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //         $money = $_POST['pinigai'];
-    //         $startingMoney = 
-    //     }
-    // }
+    public function addMoney(int $id)
+    {
+        $errors = [];
+        
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(!preg_match('/^[0-9]+$/', $_POST['pinigai'])){
+                $errors['add'] = 'Ivesties laukelije gali buti tik skaicius';
+            }
+            foreach(Json::connect()->showAll() as $val){
+                if($val['id'] == $id){
+                    $money = $val['pinigai'];
+                }
+            }
+            $sum = $money + $_POST['pinigai'];
+            
+            
+            if(!empty($errors)) {
+                App::view('prideti', ['title' => 'Add Money', 'errors'=> $errors]);
+            }else{
+                Json::connect()->update($id, [
+                    'vardas' => $_POST['vardas'],
+                    'pavarde' => $_POST['pavarde'],
+                    'asmensKodas' => $_POST['asmensKodas'],
+                    'pinigai' => $sum,
+                    'iban' => $_POST['iban']
+                ]);
+                return App::redirect('list');
+            }
+        }
+    }
+    public function removeMoney(int $id)
+    {
+        $errors = [];
+        
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(!preg_match('/^[0-9]+$/', $_POST['pinigai'])){
+                $errors['add'] = 'Ivesties laukelije gali buti tik skaicius';
+            }
+            foreach(Json::connect()->showAll() as $val){
+                if($val['id'] == $id){
+                    $money = $val['pinigai'];
+                }
+            }
+            $sum = $money - $_POST['pinigai'];
+            
+            
+            if(!empty($errors)) {
+                App::view('prideti', ['title' => 'Add Money', 'errors'=> $errors]);
+            }else{
+                Json::connect()->update($id, [
+                    'vardas' => $_POST['vardas'],
+                    'pavarde' => $_POST['pavarde'],
+                    'asmensKodas' => $_POST['asmensKodas'],
+                    'pinigai' => $sum,
+                    'iban' => $_POST['iban']
+                ]);
+                return App::redirect('list');
+            }
+        }
+    }
     
     public function list()
     {

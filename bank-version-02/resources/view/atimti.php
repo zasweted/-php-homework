@@ -3,7 +3,7 @@
 <section class="container container-row form">
     <fieldset>
         <legend><h1>atimti</h1></legend>
-        <form action="<?=URL?>update/<?=$user['id']?>" method="post">
+        <form action="<?=URL?>removeMoney/<?=$user['id']?>" method="post">
             <h2>Vardas: </h2> <input class="input-bordless" type="text" name="vardas" value="<?=$user['vardas']?>" readonly>
             <h2>Pavarde: </h2> <input class="input-bordless" type="text" name="pavarde" value="<?=$user['pavarde']?>" readonly>
             <h2>Asmens Kodas: </h2> <input class="input-bordless" type="text" name="asmensKodas" value="<?=$user['asmensKodas']?>" readonly>
