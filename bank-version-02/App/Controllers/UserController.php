@@ -47,12 +47,15 @@ class UserController {
             if(!preg_match('/^[0-9]+$/', $_POST['pinigai'])){
                 $errors['add'] = 'Ivesties laukelije gali buti tik skaicius';
             }
+            if(empty($_POST['pinigai'])){
+                $errors['add'] = 'Ivesties laukelis negali buti tuscias';
+            }
             foreach(Json::connect()->showAll() as $val){
                 if($val['id'] == $id){
                     $money = $val['pinigai'];
                 }
             }
-            $sum = $money + $_POST['pinigai'];
+            $sum = (int)$money + (int)$_POST['pinigai'];
             
             
             if(!empty($errors)) {
@@ -77,16 +80,19 @@ class UserController {
             if(!preg_match('/^[0-9]+$/', $_POST['pinigai'])){
                 $errors['add'] = 'Ivesties laukelije gali buti tik skaicius';
             }
+            if(empty($_POST['pinigai'])){
+                $errors['add'] = 'Ivesties laukelis negali buti tuscias';
+            }
             foreach(Json::connect()->showAll() as $val){
                 if($val['id'] == $id){
                     $money = $val['pinigai'];
                 }
             }
-            $sum = $money - $_POST['pinigai'];
+            $sum = (int)$money - (int)$_POST['pinigai'];
             
             
             if(!empty($errors)) {
-                App::view('prideti', ['title' => 'Add Money', 'errors'=> $errors]);
+                App::view('atimti', ['title' => 'Remove Money', 'errors'=> $errors]);
             }else{
                 Json::connect()->update($id, [
                     'vardas' => $_POST['vardas'],
