@@ -34,8 +34,16 @@ body {
 .form {
     display: flex;
     flex-direction: column;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
+}
+
+.form-input {
+    font-size: 18px;
+    margin: 10px 0;
+    border: none;
+    width: 150%;
+    border-bottom: 1px solid grey;
 }
 
 .form-inner {
@@ -46,11 +54,18 @@ body {
 }
 
 .btn {
-    background-color: grey;
-    border: 1px solid #000;
-    color: #fff;
+    padding: 3px 10px;
     text-decoration: none;
-    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.back {
+    border: none #0474A4;
+    background-color: #0474A4;
+    color: #fff;
+}
+.submit {
+    padding: 10px 40px;
 }
 .btn-green{
     background-color: green;
@@ -58,9 +73,13 @@ body {
 .btn-red{
     background-color: red;
 }
+.title {
+    margin-bottom: 30px;
+}
 
 /*header start*/
 .logo {
+    margin: 10px 0;
     width: 80px;
     height: 80px;
 }
@@ -71,7 +90,33 @@ body {
     justify-content: space-around;
     align-items: center;
     background-color: skyblue;
-    }
+}
+.links-inner {
+    position: relative;
+    text-decoration: none; 
+    color: #000; 
+    font-size: 20px; 
+    text-transform: capitalize;
+}
+
+.links-inner:hover::after {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 25px;
+    
+}
+.links {
+    display: flex; 
+    flex-direction: row; 
+    gap: 20px;
+}
+.logout {
+    background-color: crimson;
+}
 /*header end*/
 .screen {
     display: flex;
@@ -81,8 +126,9 @@ body {
 
 
 .list-title {
+    text-transform: capitalize;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 
@@ -91,4 +137,38 @@ body {
 }
 .errors{
     color: red;
+}
+.btn-inner {
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.btn-inner:after {
+    position: absolute;
+    content: '';
+    width: 120%;
+    height: 1px;
+    background-color: #000;
+    bottom: -10px;
+    right: -40px;
+}
+.del {
+    border: none red;
+    background-color: red;
+    color: #fff;
+}
+.add {
+    border: none green;
+    background-color: green;
+    color: #fff;
+}
+.dec {
+    border: none grey;
+    background-color: grey;
+    color: #fff;
+}
+.list-content{
+    background: lightgrey;
 }

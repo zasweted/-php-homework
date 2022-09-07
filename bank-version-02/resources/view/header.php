@@ -1,18 +1,21 @@
 <section class="container-padding container-row">
-    <header class="header">
-        <div>
-            <div>
-                <img class="logo" src="<?=URL?>assets/img/logo.png" alt="logo">
-            </div>
-            <div class="nav">
-                <a class="btn btn-green" href="<?=URL?>login">Login</a>
-                <a class="btn" href="<?=URL?>">Home</a>
-                <a class="btn" href="<?=URL?>create">Create</a>
-                <a class="btn" href="<?=URL?>list">List</a>
+<header>
+    <div class="header">
+        <img class="logo" src="./assets/img/logo.png" alt="logo">
+        <nav class="nav">
+            <ul class="links">
+                <a class="links-inner" href="<?=URL?>">Home</a>
+                <a class="links-inner" href="<?=URL?>create">Create</a>
+                <a class="links-inner" href="<?=URL?>list">List</a>
+                <?php if(App\Middlewares\Auth::isLoged()): ?>
                 <form action="<?=URL?>logout" method="post">
-                    <button class="btn btn-red" type="submit">Logout</button>
+                    <button class="links-inner btn back logout" type="submit">Logout</button>
                 </form>
-            </div>
-        </div>
-    </header>
+                <?php else : ?>
+                <a class="links-inner" href="<?=URL?>login">Login</a>
+                <?php endif ?>
+            </ul>
+        </nav>
+    </div>
+</header>
 </section>

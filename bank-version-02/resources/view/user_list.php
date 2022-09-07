@@ -1,46 +1,48 @@
 <?php App\App::view('top', ['title'=>$title]);?>
 
 <section class="container container-row form">
+    <h1 class="title">Klientų sąrašas :</h1>
     <ul>
         <?php foreach($users as $user) : ?>
-        <fieldset class="form-inner">
-            <div class="form-inner">
-                <li>
-                    <p class="list-title">Vardas:</p> <?=$user['vardas']?>
-                </li>
-                <li>
-                    <p class="list-title">Pavarde:</p> <?=$user['pavarde']?>
-                </li>
-                <li>
-                    <p class="list-title">Asmens Kodas:</p> <?=$user['asmensKodas']?>
-                </li>
-                <li>
-                    <p class="list-title">Saskaitos likutis:</p> <?=$user['pinigai']?> $
-                </li>
-                <li>
-                    <p class="list-title">IBAN:</p> <?=$user['iban']?>
-                </li>
 
-                
+        <div class="form-inner">
+            <li>
+                <p class="list-title">Vardas:</p> <p class="list-content"><?=$user['vardas']?></p>
+            </li>
+            <li>
+                <p class="list-title">Pavarde:</p class="list-content"> <p class="list-content"><?=$user['pavarde']?></p>
+            </li>
+            <li>
+                <p class="list-title">Asmens Kodas:</p class="list-content"> <p class="list-content"><?=$user['asmensKodas']?></p>
+            </li>
+            <li>
+                <p class="list-title">IBAN:</p class="list-content"> <p class="list-content"><?=$user['iban']?></p>
+            </li>
+            <li>
+                <p class="list-title">Saskaitos likutis:</p class="list-content"> <p class="list-content"><?=$user['pinigai'] . ' $'?></p> 
+            </li>
+
+            <div class="btn-inner">
                 <div>
                     <form action="<?= URL ?>prideti/<?=$user['id']?>" method="get">
-                        <button type="submit" class="btn btn-red">Prideti</button>
+                        <button type="submit" class="btn add">Prideti</button>
                     </form>
                 </div>
                 <div>
                     <form action="<?= URL ?>atimti/<?=$user['id']?>" method="get">
-                        <button type="submit" class="btn btn-red">Atimti</button>
+                        <button type="submit" class="btn dec">Atimti</button>
                     </form>
                 </div>
                 <div>
                     <form action="<?= URL ?>delete/<?=$user['id']?>" method="post">
-                        <button type="submit" class="btn btn-red">Istrinti</button>
+                        <button type="submit" class="btn del">Istrinti</button>
                     </form>
                     <div class="errors"><?=$errors['add'] ?? '' ?></div>
                 </div>
             </div>
-        </fieldset>
-        
+        </div>
+
+
 
         <?php endforeach ?>
     </ul>
