@@ -59,14 +59,11 @@ class UserController {
             
             
             if(!empty($errors)) {
-                App::view('prideti', ['title' => 'Add Money', 'errors'=> $errors]);
+                $user = Json::connect()->show($id);
+                App::view('prideti', ['title' => 'Add Money', 'errors'=> $errors, 'user'=> $user]);
             }else{
-                Json::connect()->update($id, [
-                    'vardas' => $_POST['vardas'],
-                    'pavarde' => $_POST['pavarde'],
-                    'asmensKodas' => $_POST['asmensKodas'],
-                    'pinigai' => $sum,
-                    'iban' => $_POST['iban']
+                Json::connect()->updateMoney($id, [
+                    'pinigai' => $sum
                 ]);
                 return App::redirect('list');
             }
@@ -77,6 +74,7 @@ class UserController {
         $errors = [];
         
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            
             if(!preg_match('/^[0-9]+$/', $_POST['pinigai'])){
                 $errors['add'] = 'Ivesties laukelije gali buti tik skaicius';
             }
@@ -89,17 +87,18 @@ class UserController {
                 }
             }
             $sum = (int)$money - (int)$_POST['pinigai'];
+            if($sum < 0){
+                $errors['add'] = 'Galutinis likutis negali buti maziau uz 0';
+            }
             
             
             if(!empty($errors)) {
-                App::view('atimti', ['title' => 'Remove Money', 'errors'=> $errors]);
+                $user = Json::connect()->show($id);
+                App::view('atimti', ['title' => 'Remove Money', 'errors'=> $errors, 'user' => $user]);
             }else{
-                Json::connect()->update($id, [
-                    'vardas' => $_POST['vardas'],
-                    'pavarde' => $_POST['pavarde'],
-                    'asmensKodas' => $_POST['asmensKodas'],
-                    'pinigai' => $sum,
-                    'iban' => $_POST['iban']
+                Json::connect()->updateMoney($id, [
+                    'pinigai' => $sum
+                    
                 ]);
                 return App::redirect('list');
             }
@@ -135,10 +134,18 @@ class UserController {
         
     public function delete(int $id)
     {
-        
-        Json::connect()->delete($id);
-        
-     return App::redirect('list');
+        $errors = [];
+        $user = Json::connect()->show($id);
+        if((int)$user['pinigai'] === 0){
+            $errors['add'] = 'Negalima istrinti vartuotojo. Saskaitoje yra pinigu likutis';
+        }
+        if(empty($errors)){
+            Json::connect()->delete($id);
+            return App::redirect('list');
+
+        }else{
+            return App::view('user_list', ['title'=>'User List', 'errors' => $errors, 'users' => Json::connect()->showAll()]);
+        }
     }
     
 }

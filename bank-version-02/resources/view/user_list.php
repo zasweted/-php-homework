@@ -36,6 +36,7 @@
                     <form action="<?= URL ?>delete/<?=$user['id']?>" method="post">
                         <button type="submit" class="btn btn-red">Istrinti</button>
                     </form>
+                    <div class="errors"><?=$errors['add'] ?? '' ?></div>
                 </div>
             </div>
         </fieldset>

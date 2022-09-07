@@ -62,8 +62,18 @@ class Json implements DataBase {
     {
         foreach($this->data as &$user){
             if($user['id'] == $userId){
-                $userData['id'] =$userId;
+                $userData['id'] = $userId;
                 $user = $userData;
+                break;
+            }
+        }
+    }
+    public function updateMoney(int $userId, array $userData) : void
+    {
+        foreach($this->data as &$user){
+            if($user['id'] == $userId){
+                $userData['id'] = $userId;
+                $user['pinigai'] = $userData['pinigai'];
                 break;
             }
         }
