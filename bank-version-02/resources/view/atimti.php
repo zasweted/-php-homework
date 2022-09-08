@@ -1,18 +1,35 @@
 <?php App\App::view('top', ['title'=>$title]);?>
-
 <section class="container container-row form">
-    <fieldset>
-        <legend><h1>Atimti</h1></legend>
+    <h1>Atimti</h1>
+    <ul>
         <form action="<?=URL?>removeMoney/<?=$user['id']?>" method="post">
-            <h2>Vardas: </h2> <p><?=$user['vardas']?></p>
-            <h2>Pavarde: </h2> <p><?=$user['pavarde']?></p>
-            <h2>Asmens Kodas: </h2> <p><?=$user['asmensKodas']?></p>
-            <h2>IBAN: </h2> <p><?=$user['iban']?></p>
-            <h2>Saskaitos likutis:</h2> <p><?=$user['pinigai']?></p>    
-            <input type="text" name="pinigai">  
-            <button class="btn" type="submit">Atimti</button>
+            <div class="form-inner">
+                <li>
+                    <p class="list-title">Vardas:</p>
+                    <p class="list-content"><?=$user['vardas']?></p>
+                </li>
+                <li>
+                    <p class="list-title">Pavarde:</p class="list-content">
+                    <p class="list-content"><?=$user['pavarde']?></p>
+                </li>
+                <li>
+                    <p class="list-title">Asmens Kodas:</p class="list-content">
+                    <p class="list-content"><?=$user['asmensKodas']?></p>
+                </li>
+                <li>
+                    <p class="list-title">IBAN:</p class="list-content">
+                    <p class="list-content"><?=$user['iban']?></p>
+                </li>
+                <li>
+                    <p class="list-title">Saskaitos likutis:</p class="list-content">
+                    <p class="list-content"><?=$user['pinigai'] . ' $'?></p>
+                </li>
+
+                <input class="form-input-small" type="text" name="pinigai">
+                <button class="btn back del" type="submit">Atimti</button>
         </form>
-        <div class="errors"><?=$errors['add'] ?? '' ?></div>
-    </fieldset>
+    </ul>
+    <div class="errors-small"><?=$errors['add'] ?? '' ?></div>
+
 </section>
 <?php App\App::view('bottom');?>

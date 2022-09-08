@@ -1,7 +1,7 @@
 <section class="container-padding container-row">
 <header>
     <div class="header">
-        <img class="logo" src="./assets/img/logo.png" alt="logo">
+        <img class="logo" src="<?=URL?>assets/img/logo.png" alt="logo">
         <nav class="nav">
             <ul class="links">
                 <a class="links-inner" href="<?=URL?>">Home</a>

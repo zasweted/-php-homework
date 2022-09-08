@@ -136,7 +136,7 @@ class UserController {
     {
         $errors = [];
         $user = Json::connect()->show($id);
-        if((int)$user['pinigai'] === 0){
+        if((int)$user['pinigai'] !== 0){
             $errors['add'] = 'Negalima istrinti vartuotojo. Saskaitoje yra pinigu likutis';
         }
         if(empty($errors)){
@@ -144,7 +144,7 @@ class UserController {
             return App::redirect('list');
 
         }else{
-            return App::view('user_list', ['title'=>'User List', 'errors' => $errors, 'users' => Json::connect()->showAll()]);
+            return App::view('user_list', ['title'=>'User List', 'errors' => $errors, 'users' => Json::connect()->showAll(), 'kek' => $id]);
         }
     }
     

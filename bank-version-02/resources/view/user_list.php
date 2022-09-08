@@ -21,6 +21,9 @@
             <li>
                 <p class="list-title">Saskaitos likutis:</p class="list-content"> <p class="list-content"><?=$user['pinigai'] . ' $'?></p> 
             </li>
+            <?php if($user['id'] == $kek) : ?>
+            <div class="errors"><?=$errors['add'] ?? '' ?></div>
+            <?php endif ?>
 
             <div class="btn-inner">
                 <div>
@@ -37,13 +40,11 @@
                     <form action="<?= URL ?>delete/<?=$user['id']?>" method="post">
                         <button type="submit" class="btn del">Istrinti</button>
                     </form>
-                    <div class="errors"><?=$errors['add'] ?? '' ?></div>
                 </div>
             </div>
         </div>
-
-
-
+        
+        
         <?php endforeach ?>
     </ul>
 </section>

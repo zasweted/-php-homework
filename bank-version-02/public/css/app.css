@@ -46,7 +46,15 @@ body {
   font-size: 18px;
   margin: 10px 0;
   border: none;
-  width: 150%;
+  width: 200px;
+  border-bottom: 1px solid grey;
+}
+
+.form-input-small {
+  font-size: 18px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
   border-bottom: 1px solid grey;
 }
 
@@ -54,7 +62,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
 }
 
 .btn {
@@ -142,12 +149,20 @@ body {
   font-weight: 900;
 }
 
-.input-bordless {
-  border: none;
+.errors {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  color: red;
+  padding: 20px 0;
 }
 
-.errors {
+.errors-small {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
   color: red;
+  padding: 20px 0;
 }
 
 .btn-inner {
@@ -165,7 +180,7 @@ body {
   height: 1px;
   background-color: #000;
   bottom: -10px;
-  right: -40px;
+  right: -22.5px;
 }
 
 .del {

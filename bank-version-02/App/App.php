@@ -5,7 +5,6 @@ namespace App;
 use App\Controllers\HomeController as H;
 use App\Controllers\UserController as U;
 use App\Controllers\LoginController as L;
-use App\Middlewares\UserValidator as V;
 use App\Middlewares\Auth;
 
 class App {
