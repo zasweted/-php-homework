@@ -9,7 +9,7 @@
                 <a class="links-inner" href="<?=URL?>list">List</a>
                 <?php if(App\Middlewares\Auth::isLoged()): ?>
                 <form action="<?=URL?>logout" method="post">
-                    <button class="links-inner btn back logout" type="submit">Logout</button>
+                    <button class="btn back logout" type="submit">Logout</button>
                 </form>
                 <?php else : ?>
                 <a class="links-inner" href="<?=URL?>login">Login</a>

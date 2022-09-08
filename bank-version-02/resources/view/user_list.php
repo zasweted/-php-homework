@@ -21,7 +21,7 @@
             <li>
                 <p class="list-title">Saskaitos likutis:</p class="list-content"> <p class="list-content"><?=$user['pinigai'] . ' $'?></p> 
             </li>
-            <?php if($user['id'] == $kek) : ?>
+            <?php if(isset($kek) && $user['id'] == $kek) : ?>
             <div class="errors"><?=$errors['add'] ?? '' ?></div>
             <?php endif ?>
 
