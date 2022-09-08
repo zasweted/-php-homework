@@ -1,8 +1,11 @@
+import { useState, useEffect } from 'react';
 import './App.scss';
 import Login from './Components/Login';
 import Nav from './Components/Nav';
 
 function App() {
+
+  const [users, setUsers] = useState(null);
   return (
     <>
       <Nav></Nav>
