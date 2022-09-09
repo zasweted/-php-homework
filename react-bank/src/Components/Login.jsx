@@ -6,11 +6,11 @@ function Login() {
 
         <>
             <section className="section-padding">
-                <div class="card">
-                    <div class="card-header">
+                <div className="card">
+                    <div className="card-header">
                         Login
                     </div>
-                    <div class="card-body">
+                    <div className="card-body">
                         <form>
                             <div className="form-group">
                                 <label>User Name</label>

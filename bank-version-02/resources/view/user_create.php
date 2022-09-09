@@ -17,7 +17,6 @@
         <div class="errors">
             <?= $errors['asmensKodas'] ?? ''?>
         </div>
-        <input type="text" name="pinigai" value="0" hidden>
         <button class="btn back submit" type="submit">Create</button>
         </div>
         </form>

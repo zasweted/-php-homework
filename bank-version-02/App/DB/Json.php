@@ -54,6 +54,7 @@ class Json implements DataBase {
     {
         $userData['id'] = $this->getId();
         $userData['iban'] = $this->iban();
+        $userData['pinigai'] = 0;
         $this->data[] = $userData;
 
     }

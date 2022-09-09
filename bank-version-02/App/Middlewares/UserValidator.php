@@ -7,7 +7,7 @@ class UserValidator {
 
     private $data;
     private $errors = [];
-    private static $fields = ['vardas', 'pavarde', 'asmensKodas', 'pinigai'];
+    private static $fields = ['vardas', 'pavarde', 'asmensKodas'];
     
     public function __construct(array $postData)
     {
