@@ -1,11 +1,20 @@
 
 
 
-function List({ users, setDeleteData }) {
+function List({ users, setDeleteData, setModalDataAdd, setModalDataRemove}) {
 
     const destroy = id => {
         setDeleteData({id});
         console.log(setDeleteData);
+    }
+
+    const editAdd = user => {
+        setModalDataAdd(user);
+
+    }
+    const editRemove = user => {
+        setModalDataRemove(user);
+
     }
 
     if(null === users){
@@ -42,8 +51,8 @@ function List({ users, setDeleteData }) {
                                 <div style={{
                                     marginBottom:'15px'
                                 }} className="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" className="btn btn btn-success">Prideti</button>
-                                    <button type="button" className="btn btn-warning">Atimti</button>
+                                    <button onClick={() => editAdd(user)} type="button" className="btn btn btn-success">Prideti</button>
+                                    <button onClick={() => editRemove(user)} type="button" className="btn btn btn-warning">Atimtii</button>
                                     <button onClick={() => destroy(user.id)} type="button" className="btn btn-danger">Istrinti</button>
                                 </div>
                             </div>)

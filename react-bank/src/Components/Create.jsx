@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function Create({setCreateData}){
+function Create({setCreateData, error}){
 
     const [vardas, setVardas] = useState('');
     const [pavarde, setPavarde] = useState('');
@@ -34,6 +34,7 @@ function Create({setCreateData}){
                             <div className="form-group">
                                 <label>Vardas</label>
                                 <input value={vardas} onChange={e => setVardas(e.target.value)} type="text" className="form-control" />
+                                <div className="error">{error}</div>
                             </div>
                             <div className="form-group">
                                 <label>Pavarde</label>

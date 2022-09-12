@@ -5,7 +5,9 @@ import Create from './Components/Create';
 import List from './Components/List';
 import Login from './Components/Login';
 import Nav from './Components/Nav';
-import Edit from './Components/Edit';
+import Prideti from './Components/Prideti';
+import Atimti from './Components/Atimti';
+import Error from './Components/Error';
 
 function App() {
 
@@ -13,8 +15,10 @@ function App() {
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
   const [editData, setEditData] = useState(null);
-  const [modalData, setModalData] = useState(null);
+  const [modalDataAdd, setModalDataAdd] = useState(null);
+  const [modalDataRemove, setModalDataRemove] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios.get('http://bank.oop/react/list')
@@ -29,6 +33,7 @@ function App() {
     axios.post('http://bank.oop/react/list', createData)
     .then(res => {
       setLastUpdate(Date.now());
+      showError(res.data.error);
   })
 }, [createData])
 
@@ -53,6 +58,11 @@ useEffect(() => {
   })
 }, [editData])
 
+const showError = error => {
+  setError(error);
+  setTimeout(() => setError(null), 3000)
+}
+
 
   return (
     <>
@@ -64,11 +74,13 @@ useEffect(() => {
             <Create setCreateData={setCreateData}></Create>
           </div>
           <div className="col-5">
-            <List users={users} setDeleteData={setDeleteData}></List>
+            <List users={users} setDeleteData={setDeleteData} setModalDataAdd={setModalDataAdd} setModalDataRemove={setModalDataRemove}></List>
           </div>
         </div>
       </div>
-      <Edit setModalData={setModalData} modalData={modalData} setEditData={setEditData}></Edit>
+      <Prideti setModalData={setModalDataAdd} modalData={modalDataAdd} setEditData={setEditData}></Prideti>
+      <Atimti setModalData={setModalDataRemove} modalData={modalDataRemove} setEditData={setEditData}></Atimti>
+      <Error error={error}></Error>
     </>
   );
 }

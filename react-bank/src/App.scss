@@ -54,3 +54,36 @@ h1 {
     font-size: 28px;
   }
 }
+
+.error-msg{
+  color: red;
+}
+
+.msg {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 25px;
+  min-width: 500px;
+  text-align: center;
+}
+
+.msg-bin {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.msg-bin {
+  position: fixed;
+  width: 100%;
+  top: 15px;
+  .msg{
+      font-size: 22px;
+      color: #fff;
+      background-color: #87ceebdd;
+  }
+}
