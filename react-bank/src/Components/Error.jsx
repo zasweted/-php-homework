@@ -7,14 +7,18 @@ function Error({error}){
     }
 
 
+
     return(
 
         <>
-            <div className="msg-bin">
-                <div className="msg">
-                    {error}
+            
+                <div className="error-msg">
+                    {
+                    error && error
+                    }
+                     
                 </div>
-            </div>
+            
         </>
 
     );

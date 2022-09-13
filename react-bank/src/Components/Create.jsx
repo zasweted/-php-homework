@@ -1,8 +1,8 @@
 import { useState } from "react";
+import Error from "./Error";
 
 
 function Create({setCreateData, error}){
-
     const [vardas, setVardas] = useState('');
     const [pavarde, setPavarde] = useState('');
     const [asmensKodas, setAsmensKodas] = useState('');
@@ -20,6 +20,7 @@ function Create({setCreateData, error}){
         setCreateData(data);
     }
 
+    
 
     return(
 
@@ -34,15 +35,18 @@ function Create({setCreateData, error}){
                             <div className="form-group">
                                 <label>Vardas</label>
                                 <input value={vardas} onChange={e => setVardas(e.target.value)} type="text" className="form-control" />
-                                <div className="error">{error}</div>
+                                <Error error={error.vardas && error.vardas}></Error>
                             </div>
                             <div className="form-group">
                                 <label>Pavarde</label>
                                 <input value={pavarde} onChange={e => setPavarde(e.target.value)} type="text" className="form-control" />
+                                <Error error={error.pavarde && error.pavarde}></Error>
                             </div>
                             <div className="form-group">
                                 <label>Asmens Kodas</label>
                                 <input value={asmensKodas} onChange={e => setAsmensKodas(e.target.value)} type="text" className="form-control" />
+                                <Error error={error.asmensKodas && error.asmensKodas}></Error>
+                                <Error error={error.noError && error.noError}></Error>
                             </div>
                             
 

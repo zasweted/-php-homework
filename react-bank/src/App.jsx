@@ -18,7 +18,8 @@ function App() {
   const [modalDataAdd, setModalDataAdd] = useState(null);
   const [modalDataRemove, setModalDataRemove] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
-  const [error, setError] = useState(null);
+  const [error, setError] = useState({vardas: '', pavarde: '', asmensKodas: '', noError: '', delete: ''});
+  console.log(error);
 
   useEffect(() => {
     axios.get('http://bank.oop/react/list')
@@ -60,7 +61,7 @@ useEffect(() => {
 
 const showError = error => {
   setError(error);
-  setTimeout(() => setError(null), 3000)
+  // setTimeout(() => setError(null), 3000)
 }
 
 
@@ -71,16 +72,16 @@ const showError = error => {
         <div className="row">
           <div className="col-5">
             <Login></Login>
-            <Create setCreateData={setCreateData}></Create>
+            <Create setCreateData={setCreateData} error={error}></Create>
           </div>
           <div className="col-5">
-            <List users={users} setDeleteData={setDeleteData} setModalDataAdd={setModalDataAdd} setModalDataRemove={setModalDataRemove}></List>
+            <List users={users} setDeleteData={setDeleteData} setModalDataAdd={setModalDataAdd} setModalDataRemove={setModalDataRemove} error={error}></List>
           </div>
         </div>
       </div>
       <Prideti setModalData={setModalDataAdd} modalData={modalDataAdd} setEditData={setEditData}></Prideti>
       <Atimti setModalData={setModalDataRemove} modalData={modalDataRemove} setEditData={setEditData}></Atimti>
-      <Error error={error}></Error>
+      {/* <Error error={error}></Error> */}
     </>
   );
 }

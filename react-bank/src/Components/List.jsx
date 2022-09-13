@@ -1,11 +1,11 @@
+import Error from "./Error";
 
 
 
-function List({ users, setDeleteData, setModalDataAdd, setModalDataRemove}) {
+function List({ users, setDeleteData, setModalDataAdd, setModalDataRemove, error}) {
 
     const destroy = id => {
         setDeleteData({id});
-        console.log(setDeleteData);
     }
 
     const editAdd = user => {
@@ -48,8 +48,9 @@ function List({ users, setDeleteData, setModalDataAdd, setModalDataRemove}) {
                                     <span className="span-title">Saskaitos Likutis:</span> {user.pinigai}
                                 </li>
                             </ul>
+                                <Error error={error.delete && error.delete}></Error>
                                 <div style={{
-                                    marginBottom:'15px'
+                                    marginBottom:'30px'
                                 }} className="btn-group" role="group" aria-label="Basic example">
                                     <button onClick={() => editAdd(user)} type="button" className="btn btn btn-success">Prideti</button>
                                     <button onClick={() => editRemove(user)} type="button" className="btn btn btn-warning">Atimtii</button>

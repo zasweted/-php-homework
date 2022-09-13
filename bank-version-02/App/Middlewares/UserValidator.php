@@ -16,11 +16,11 @@ class UserValidator {
 
     public function validateForm()
     {
-        foreach(self::$fields as $field){
-            if(!array_key_exists($field, $this->data)){
-                return trigger_error($field . ' is not present in data');
-            }
-        }
+        // foreach(self::$fields as $field){
+        //     if(!array_key_exists($field, $this->data)){
+        //         return trigger_error($field . ' is not present in data');
+        //     }
+        // }
         $this->validateName();
         $this->validateSurname();
         $this->validatePersonalId();

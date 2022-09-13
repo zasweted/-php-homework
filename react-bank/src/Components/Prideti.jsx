@@ -7,7 +7,7 @@ function Prideti({ setModalData, modalData, setEditData }) {
     const [asmensKodas, setAsmensKodas] = useState('');
     const [iban, setIban] = useState('');
     const [pinigai, setPinigai] = useState('');
-    const [cash, setCash] = useState('');
+    const [cash, setCash] = useState(0);
 
     useEffect(() => {
         if(null === modalData){
